@@ -1205,13 +1205,18 @@
       border: 1px solid #808080;
     }
 
-    /* Cada panel azul */
+    /* Cada panel azul (Picture Tasks) */
     .mypictures-panel {
       background: linear-gradient(to bottom, #f4f7fd 0%, #d8e4fb 100%);
       border-radius: 4px;
       margin-bottom: 10px;
       overflow: hidden;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Paneles con fondo sólido (File and Folder Tasks, Other Places, Details) */
+    .mypictures-panel:has(.mypictures-panel-header-simple) {
+      background: #D7DEF8;
     }
 
     .mypictures-panel-header {
