@@ -1013,12 +1013,12 @@
     .mypictures-toolbar {
       background: linear-gradient(to bottom, #f5f4ea 0%, #dfd8b8 100%);
       border-bottom: 1px solid #808080;
-      padding: 3px 4px;
+      padding: 4px 6px;
       display: flex;
       align-items: center;
-      gap: 2px;
+      gap: 3px;
       flex-shrink: 0;
-      height: 30px;
+      height: 40px;
       box-sizing: border-box;
     }
 
@@ -1026,7 +1026,7 @@
     .mypictures-tb-btn {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       padding: 0 4px;
       background: transparent;
       border: none;
@@ -1034,7 +1034,7 @@
       font-family: 'Tahoma', sans-serif;
       font-size: 11px;
       color: #000;
-      height: 28px;
+      height: 36px;
     }
 
     .mypictures-tb-btn:disabled {
@@ -1043,8 +1043,8 @@
 
     /* Los íconos SÍ tienen hover/click, no el botón entero */
     .mypictures-tb-btn img {
-      width: 28px;
-      height: 28px;
+      width: 34px;
+      height: 34px;
       display: block;
       cursor: pointer;
       padding: 2px;
@@ -1095,7 +1095,7 @@
       align-items: center;
       gap: 5px;
       flex-shrink: 0;
-      height: 26px;
+      height: 30px;
       box-sizing: border-box;
     }
 
@@ -1133,29 +1133,44 @@
       text-overflow: ellipsis;
     }
 
+    /* Contenedor del Go: sin borde, sin hover, sin clickeabilidad */
     .mypictures-address-go {
-      background: linear-gradient(to bottom, #f5f4ea 0%, #dfd8b8 100%);
-      border: 1px solid #7f9db9;
-      padding: 0 8px 0 4px;
-      font-family: 'Tahoma', sans-serif;
-      font-size: 11px;
-      cursor: pointer;
       display: flex;
       align-items: center;
       gap: 4px;
-      height: 22px;
+      padding: 0 4px;
+      font-family: 'Tahoma', sans-serif;
+      font-size: 11px;
+      color: #000;
+      cursor: default;
+      user-select: none;
+      height: 24px;
+    }
+
+    /* Solo el ícono es clickeable con hover */
+    .mypictures-address-go-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+      cursor: pointer;
+      padding: 2px;
+      border: 1px solid transparent;
+      border-radius: 3px;
       box-sizing: border-box;
     }
 
-    .mypictures-address-go:hover {
-      background: linear-gradient(to bottom, #fdfdfd 0%, #e8e2c5 100%);
-      border-color: #ff9933;
+    .mypictures-address-go-icon:hover {
+      border: 1px solid #ff9933;
+      background: linear-gradient(to bottom, #fff5d8 0%, #ffe0a0 100%);
     }
 
-    .mypictures-address-go img {
-      width: 18px !important;
-      height: 18px !important;
-      margin-right: 0 !important;
+    .mypictures-address-go-icon:active {
+      background: linear-gradient(to bottom, #ffe0a0 0%, #fff5d8 100%);
+      box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    .mypictures-address-go-label {
+      color: #000;
     }
 
 
@@ -2163,9 +2178,10 @@
           <img src="https://i.imgur.com/5B3dJrk.png" alt="">
           <span>C:\Documents and Settings\Guest\My Documents\My Pictures</span>
         </div>
-        <button class="mypictures-address-go">
-          <img src="https://i.imgur.com/ppL5SzN.png" alt="">Go
-        </button>
+        <div class="mypictures-address-go">
+          <img src="https://i.imgur.com/ppL5SzN.png" alt="Go" class="mypictures-address-go-icon" title="Go">
+          <span class="mypictures-address-go-label">Go</span>
+        </div>
       </div>
 
       <!-- Área principal -->
