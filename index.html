@@ -1022,49 +1022,51 @@
       box-sizing: border-box;
     }
 
+    /* Botón contenedor sin efectos (solo el ícono es clickeable) */
     .mypictures-tb-btn {
       display: flex;
       align-items: center;
-      gap: 3px;
-      padding: 3px 6px;
+      gap: 4px;
+      padding: 0 4px;
       background: transparent;
-      border: 1px solid transparent;
-      cursor: pointer;
+      border: none;
+      cursor: default;
       font-family: 'Tahoma', sans-serif;
       font-size: 11px;
       color: #000;
-      height: 24px;
-    }
-
-    .mypictures-tb-btn:hover:not(:disabled) {
-      border: 1px solid #ff9933;
-      background: linear-gradient(to bottom, #fff5d8 0%, #ffe0a0 100%);
-    }
-
-    .mypictures-tb-btn:active:not(:disabled) {
-      background: linear-gradient(to bottom, #ffe0a0 0%, #fff5d8 100%);
-      box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15);
+      height: 28px;
     }
 
     .mypictures-tb-btn:disabled {
       opacity: 0.4;
-      cursor: default;
     }
 
+    /* Los íconos SÍ tienen hover/click, no el botón entero */
     .mypictures-tb-btn img {
-      width: 20px;
-      height: 20px;
+      width: 28px;
+      height: 28px;
       display: block;
+      cursor: pointer;
+      padding: 2px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      box-sizing: border-box;
     }
 
-    .mypictures-tb-btn-simple img {
-      width: 22px;
-      height: 22px;
+    .mypictures-tb-btn:not(:disabled) img:hover {
+      border: 1px solid #ff9933;
+      background: linear-gradient(to bottom, #fff5d8 0%, #ffe0a0 100%);
     }
 
-    .mypictures-tb-btn-icon img {
-      width: 18px;
-      height: 18px;
+    .mypictures-tb-btn:not(:disabled) img:active {
+      background: linear-gradient(to bottom, #ffe0a0 0%, #fff5d8 100%);
+      box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Texto al lado del ícono (no clickeable) */
+    .mypictures-tb-btn span {
+      cursor: default;
+      user-select: none;
     }
 
     .mypictures-tb-arrow {
@@ -1133,20 +1135,27 @@
 
     .mypictures-address-go {
       background: linear-gradient(to bottom, #f5f4ea 0%, #dfd8b8 100%);
-      border: 1px solid #003c74;
-      padding: 2px 8px;
+      border: 1px solid #7f9db9;
+      padding: 0 8px 0 4px;
       font-family: 'Tahoma', sans-serif;
       font-size: 11px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
       height: 22px;
       box-sizing: border-box;
     }
 
     .mypictures-address-go:hover {
       background: linear-gradient(to bottom, #fdfdfd 0%, #e8e2c5 100%);
+      border-color: #ff9933;
+    }
+
+    .mypictures-address-go img {
+      width: 18px !important;
+      height: 18px !important;
+      margin-right: 0 !important;
     }
 
 
@@ -2130,19 +2139,18 @@
         </button>
         <button class="mypictures-tb-btn" title="Forward">
           <img src="https://i.imgur.com/BYaOIQ3.png" alt="Forward">
-          <span>Forward</span>
         </button>
         <div class="mypictures-tb-sep"></div>
-        <button class="mypictures-tb-btn mypictures-tb-btn-icon" title="Search">
+        <button class="mypictures-tb-btn" title="Search">
           <img src="https://i.imgur.com/egOFvc3.png" alt="Search">
           <span>Search</span>
         </button>
-        <button class="mypictures-tb-btn mypictures-tb-btn-icon" title="Folders">
+        <button class="mypictures-tb-btn" title="Folders">
           <img src="https://i.imgur.com/ACzhW5x.png" alt="Folders">
           <span>Folders</span>
         </button>
         <div class="mypictures-tb-sep"></div>
-        <button class="mypictures-tb-btn mypictures-tb-btn-simple" title="Views">
+        <button class="mypictures-tb-btn" title="Views">
           <img src="https://i.imgur.com/PyyS2xE.png" alt="Views">
           <span class="mypictures-tb-arrow">▼</span>
         </button>
@@ -2156,7 +2164,7 @@
           <span>C:\Documents and Settings\Guest\My Documents\My Pictures</span>
         </div>
         <button class="mypictures-address-go">
-          <img src="https://i.imgur.com/ppL5SzN.png" alt="" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;">Go
+          <img src="https://i.imgur.com/ppL5SzN.png" alt="">Go
         </button>
       </div>
 
