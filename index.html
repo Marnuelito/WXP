@@ -1092,7 +1092,7 @@
       align-items: center;
       gap: 5px;
       flex-shrink: 0;
-      height: 30px;
+      height: 23px;
       box-sizing: border-box;
     }
 
@@ -1144,17 +1144,25 @@
       height: 20px;
     }
 
-    /* Solo el ícono es clickeable con hover */
+    /* Solo el ícono es clickeable con efecto sutil de brillo */
     .mypictures-address-go-icon {
-      width: 39px;
-      height: 39px;
+      width: 29px;
+      height: 29px;
       display: block;
       cursor: pointer;
       padding: 0;
-      border: 1px solid transparent;
-      border-radius: 3px;
+      border: none;
       box-sizing: content-box;
       flex-shrink: 0;
+      transition: filter 0.1s ease;
+    }
+
+    .mypictures-address-go-icon:hover {
+      filter: brightness(1.2);
+    }
+
+    .mypictures-address-go-icon:active {
+      filter: brightness(0.9);
     }
 
     .mypictures-address-go-icon:hover {
