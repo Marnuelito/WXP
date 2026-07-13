@@ -1240,8 +1240,30 @@
     }
 
     .mypictures-panel-toggle {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 9px;
+      line-height: 1;
+      font-weight: bold;
+    }
+
+    /* Toggle para paneles simples (blanco con flechas azules) */
+    .mypictures-panel-header-simple .mypictures-panel-toggle {
+      background: white;
       color: #0c327d;
-      font-size: 10px;
+      border: 1px solid #a0aed4;
+    }
+
+    /* Toggle para Picture Tasks (azul con flechas blancas) */
+    .mypictures-panel-header:not(.mypictures-panel-header-simple) .mypictures-panel-toggle {
+      background: #0254B5;
+      color: white;
+      border: 1px solid #1a3a8a;
     }
 
     .mypictures-panel-body {
@@ -2201,7 +2223,12 @@
           <div class="mypictures-panel">
             <div class="mypictures-panel-header">
               <span>Picture Tasks</span>
-              <span class="mypictures-panel-toggle">▲</span>
+<span class="mypictures-panel-toggle">
+  <svg viewBox="0 0 10 10" width="10" height="10">
+    <path d="M 2,7 L 5,4 L 8,7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 2,5 L 5,2 L 8,5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</span>
             </div>
             <div class="mypictures-panel-body">
               <div class="mypictures-panel-item">
@@ -2227,7 +2254,12 @@
           <div class="mypictures-panel" id="mypicturesPanelSeleccion" style="display: none;">
             <div class="mypictures-panel-header mypictures-panel-header-simple">
               <span>File and Folder Tasks</span>
-              <span class="mypictures-panel-toggle">▲</span>
+<span class="mypictures-panel-toggle">
+  <svg viewBox="0 0 10 10" width="10" height="10">
+    <path d="M 2,7 L 5,4 L 8,7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 2,5 L 5,2 L 8,5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</span>
             </div>
             <div class="mypictures-panel-body">
               <div class="mypictures-panel-item" id="mypicturesBtnDelete" style="display: none;">
@@ -2245,7 +2277,12 @@
           <div class="mypictures-panel">
             <div class="mypictures-panel-header mypictures-panel-header-simple">
               <span>Other Places</span>
-              <span class="mypictures-panel-toggle">▲</span>
+<span class="mypictures-panel-toggle">
+  <svg viewBox="0 0 10 10" width="10" height="10">
+    <path d="M 2,7 L 5,4 L 8,7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 2,5 L 5,2 L 8,5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</span>
             </div>
             <div class="mypictures-panel-body">
               <div class="mypictures-panel-item">
@@ -2271,7 +2308,12 @@
           <div class="mypictures-panel">
             <div class="mypictures-panel-header mypictures-panel-header-simple">
               <span>Details</span>
-              <span class="mypictures-panel-toggle">▲</span>
+<span class="mypictures-panel-toggle">
+  <svg viewBox="0 0 10 10" width="10" height="10">
+    <path d="M 2,7 L 5,4 L 8,7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 2,5 L 5,2 L 8,5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</span>
             </div>
             <div class="mypictures-panel-body" id="mypicturesDetails">
               <div class="mypictures-details-titulo"><b>My Pictures</b></div>
