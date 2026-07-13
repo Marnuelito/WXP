@@ -1037,14 +1037,11 @@
       height: 36px;
     }
 
-    .mypictures-tb-btn:disabled {
-      opacity: 0.4;
-    }
 
     /* Los íconos SÍ tienen hover/click, no el botón entero */
     .mypictures-tb-btn img {
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
       display: block;
       cursor: pointer;
       padding: 0;
@@ -1053,12 +1050,12 @@
       box-sizing: content-box;
     }
 
-    .mypictures-tb-btn:not(:disabled) img:hover {
+    .mypictures-tb-btn img:hover {
       border: 1px solid #ff9933;
       background: linear-gradient(to bottom, #fff5d8 0%, #ffe0a0 100%);
     }
 
-    .mypictures-tb-btn:not(:disabled) img:active {
+    .mypictures-tb-btn img:active {
       background: linear-gradient(to bottom, #ffe0a0 0%, #fff5d8 100%);
       box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15);
     }
@@ -2146,28 +2143,28 @@
 
       <!-- Toolbar -->
       <div class="mypictures-toolbar">
-        <button class="mypictures-tb-btn" title="Back">
-          <img src="https://i.imgur.com/PVtX994.png" alt="Back">
+        <div class="mypictures-tb-btn">
+          <img src="https://i.imgur.com/PVtX994.png" alt="Back" title="Back">
           <span>Back</span>
           <span class="mypictures-tb-arrow">▼</span>
-        </button>
-        <button class="mypictures-tb-btn" title="Forward">
-          <img src="https://i.imgur.com/BYaOIQ3.png" alt="Forward">
-        </button>
+        </div>
+        <div class="mypictures-tb-btn">
+          <img src="https://i.imgur.com/BYaOIQ3.png" alt="Forward" title="Forward">
+        </div>
         <div class="mypictures-tb-sep"></div>
-        <button class="mypictures-tb-btn" title="Search">
-          <img src="https://i.imgur.com/egOFvc3.png" alt="Search">
+        <div class="mypictures-tb-btn">
+          <img src="https://i.imgur.com/egOFvc3.png" alt="Search" title="Search">
           <span>Search</span>
-        </button>
-        <button class="mypictures-tb-btn" title="Folders">
-          <img src="https://i.imgur.com/ACzhW5x.png" alt="Folders">
+        </div>
+        <div class="mypictures-tb-btn">
+          <img src="https://i.imgur.com/ACzhW5x.png" alt="Folders" title="Folders">
           <span>Folders</span>
-        </button>
+        </div>
         <div class="mypictures-tb-sep"></div>
-        <button class="mypictures-tb-btn" title="Views">
-          <img src="https://i.imgur.com/PyyS2xE.png" alt="Views">
+        <div class="mypictures-tb-btn">
+          <img src="https://i.imgur.com/PyyS2xE.png" alt="Views" title="Views">
           <span class="mypictures-tb-arrow">▼</span>
-        </button>
+        </div>
       </div>
 
       <!-- Address bar -->
