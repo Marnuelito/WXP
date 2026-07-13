@@ -1141,9 +1141,10 @@
       color: #000;
       cursor: default;
       user-select: none;
-      height: 24px;
+      height: 20px;
     }
 
+    /* Solo el ícono es clickeable con hover */
     .mypictures-address-go-icon {
       width: 39px;
       height: 39px;
@@ -1153,6 +1154,7 @@
       border: 1px solid transparent;
       border-radius: 3px;
       box-sizing: content-box;
+      flex-shrink: 0;
     }
 
     .mypictures-address-go-icon:hover {
