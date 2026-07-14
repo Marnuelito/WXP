@@ -1401,7 +1401,7 @@
     .mypictures-address-go {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 0px;
       padding: 0 4px;
       font-family: 'Tahoma', sans-serif;
       font-size: 11px;
@@ -1601,8 +1601,31 @@
       grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
       gap: 15px;
       align-content: start;
+      position: relative;
     }
 
+    /* Watermark decorativo en la esquina inferior derecha */
+    .mypictures-galeria::after {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      width: 180px;
+      height: 180px;
+      background: url('https://i.imgur.com/yqny2sS.png') no-repeat center center;
+      background-size: contain;
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Asegurar que las miniaturas queden POR ENCIMA del watermark */
+    .mypictures-thumb,
+    .mypictures-vacio,
+    .mypictures-loading {
+      position: relative;
+      z-index: 1;
+    }
     .mypictures-galeria::-webkit-scrollbar {
       width: 16px;
       background: #ece9d8;
