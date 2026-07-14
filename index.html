@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <title>Mi Escritorio XP</title>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 
   <style>
     /* ==========================================================================
@@ -5676,9 +5677,24 @@
       appId: "1:3607995403:web:b9f91d8a17c689320ad30e"
     };
 
-    firebase.initializeApp(firebaseConfig);
-    const galeriaDB = firebase.database();
-    const galeriaRef = galeriaDB.ref('dibujos');
+firebase.initializeApp(firebaseConfig);
+const galeriaDB = firebase.database();
+const galeriaRef = galeriaDB.ref('dibujos');
+const galeriaAuth = firebase.auth();
+
+// Iniciar sesión anónima automáticamente
+let galeriaUsuarioActual = null;
+
+galeriaAuth.signInAnonymously().catch(error => {
+  console.error('Auth error:', error);
+});
+
+galeriaAuth.onAuthStateChanged(user => {
+  galeriaUsuarioActual = user;
+  if (user) {
+    console.log('Usuario conectado:', user.uid);
+  }
+});
 
 
     // ==========================================================================
@@ -5896,33 +5912,40 @@
       galeriaSubirDibujo(titulo);
     }
 
-    function galeriaSubirDibujo(titulo) {
-      if (paintSeleccionActiva) paintConfirmarSeleccion();
+function galeriaSubirDibujo(titulo) {
+  // Verificar que estamos autenticados
+  if (!galeriaUsuarioActual) {
+    alert('Connecting... Please try again in a moment.');
+    return;
+  }
 
-      const exportCanvas = document.createElement('canvas');
-      exportCanvas.width = paintCanvas.width;
-      exportCanvas.height = paintCanvas.height;
-      exportCanvas.getContext('2d').drawImage(paintBuffer, 0, 0);
+  if (paintSeleccionActiva) paintConfirmarSeleccion();
 
-      let imagenBase64;
-      const pngData = exportCanvas.toDataURL('image/png');
-      if (pngData.length > 500 * 1024) {
-        imagenBase64 = exportCanvas.toDataURL('image/jpeg', 0.85);
-      } else {
-        imagenBase64 = pngData;
-      }
+  const exportCanvas = document.createElement('canvas');
+  exportCanvas.width = paintCanvas.width;
+  exportCanvas.height = paintCanvas.height;
+  exportCanvas.getContext('2d').drawImage(paintBuffer, 0, 0);
 
-      galeriaRef.push({
-        titulo: titulo,
-        imagen: imagenBase64,
-        timestamp: Date.now()
-      })
-      .then(() => alert('Drawing published to My Pictures! 🎉'))
-      .catch(error => {
-        console.error('Error publishing:', error);
-        alert('Error publishing drawing. Try again.');
-      });
-    }
+  let imagenBase64;
+  const pngData = exportCanvas.toDataURL('image/png');
+  if (pngData.length > 500 * 1024) {
+    imagenBase64 = exportCanvas.toDataURL('image/jpeg', 0.85);
+  } else {
+    imagenBase64 = pngData;
+  }
+
+  galeriaRef.push({
+    titulo: titulo,
+    imagen: imagenBase64,
+    timestamp: Date.now(),
+    uid: galeriaUsuarioActual.uid
+  })
+  .then(() => alert('Drawing published to My Pictures! 🎉'))
+  .catch(error => {
+    console.error('Error publishing:', error);
+    alert('Error publishing drawing. Try again.');
+  });
+}
 
 
     // ==========================================================================
