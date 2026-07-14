@@ -5953,30 +5953,8 @@ function galeriaSubirDibujo(titulo) {
     function galeriaAbrirAdmin() {
       if (galeriaAdminActivo) {
         if (confirm('Admin mode is active. Deactivate?')) galeriaDesactivarAdmin();
-        return;
-      }
-
-      document.getElementById('galeriaAdminPass').value = '';
-      document.getElementById('galeriaAdminError').style.display = 'none';
-      document.getElementById('galeriaDialogOverlay').style.display = 'block';
-      document.getElementById('galeriaDialogAdmin').style.display = 'block';
-      setTimeout(() => document.getElementById('galeriaAdminPass').focus(), 10);
-    }
-
-      const pass = document.getElementById('galeriaAdminPass').value;
-
-      if (pass === GALERIA_ADMIN_PASS) {
-        galeriaAdminActivo = true;
-        document.getElementById('galeriaDialogOverlay').style.display = 'none';
-        document.getElementById('galeriaDialogAdmin').style.display = 'none';
-        galeriaMostrarIndicadorAdmin();
-        if (galeriaSeleccionado) {
-          document.getElementById('mypicturesBtnDelete').style.display = 'flex';
-        }
       } else {
-        document.getElementById('galeriaAdminError').style.display = 'block';
-        document.getElementById('galeriaAdminPass').value = '';
-        document.getElementById('galeriaAdminPass').focus();
+        alert('You are not an admin on this device.');
       }
     }
 
@@ -6001,11 +5979,6 @@ function galeriaSubirDibujo(titulo) {
       });
       document.body.appendChild(indicador);
     }
-
-    document.getElementById('galeriaAdminPass').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') { e.preventDefault(); galeriaCerrarAdmin(true); }
-      else if (e.key === 'Escape') { e.preventDefault(); galeriaCerrarAdmin(false); }
-    });
 
     document.getElementById('galeriaPublishTitulo').addEventListener('keydown', function(e) {
       if (e.key === 'Enter') { e.preventDefault(); galeriaCerrarPublish(true); }
