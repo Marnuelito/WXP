@@ -1462,8 +1462,19 @@
       background: linear-gradient(to bottom, #f4f7fd 0%, #d8e4fb 100%);
       border-radius: 4px;
       margin-bottom: 10px;
-      overflow: hidden;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    /* El panel de Picture Tasks necesita permitir overflow para el ícono */
+    .mypictures-panel:has(.mypictures-panel-icon) {
+      overflow: visible;
+    }
+
+    /* Los demás paneles (simples) sí ocultan overflow */
+    .mypictures-panel:has(.mypictures-panel-header-simple) {
+      background: #D7DEF8;
+      overflow: hidden;
     }
 
     /* Paneles con header simple */
@@ -1483,6 +1494,13 @@
       cursor: pointer;
       user-select: none;
       gap: 6px;
+      position: relative;
+      border-radius: 4px 4px 0 0;
+    }
+
+    /* Cuando hay ícono flotante, dejar espacio a la izquierda */
+    .mypictures-panel-header:has(.mypictures-panel-icon) {
+      padding-left: 32px;
     }
 
     .mypictures-panel-header > span:first-of-type { flex: 1; }
@@ -1492,11 +1510,15 @@
       color: #0c327d;
     }
 
-    /* Ícono azul de Picture Tasks */
+    /* Ícono azul de Picture Tasks (sobresale del header) */
     .mypictures-panel-icon {
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       flex-shrink: 0;
+      position: absolute;
+      left: -4px;
+      top: -6px;
+      z-index: 2;
     }
 
     /* Toggle circular */
