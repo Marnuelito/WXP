@@ -2646,32 +2646,6 @@
     </div>
   </div>
 
-  <!-- Admin login -->
-  <div id="galeriaDialogAdmin" class="paint-dialog galeria-dialog-admin" style="display: none;">
-    <div class="paint-dialog-titlebar">
-      <img class="paint-dialog-icon" src="https://i.imgur.com/5B3dJrk.png" alt="">
-      <span class="paint-dialog-title">Administrator</span>
-      <button class="paint-dialog-close" onclick="galeriaCerrarAdmin(false)">
-        <svg viewBox="0 0 12 12">
-          <path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
-    <div class="paint-dialog-body galeria-admin-body">
-      <div class="paint-dialog-campo">
-        <label for="galeriaAdminPass">Password:</label>
-        <input type="password" id="galeriaAdminPass">
-      </div>
-      <div id="galeriaAdminError" class="galeria-admin-error" style="display:none;">
-        Incorrect password.
-      </div>
-    </div>
-    <div class="paint-dialog-botones">
-      <button class="paint-dialog-btn" onclick="galeriaCerrarAdmin(true)">OK</button>
-      <button class="paint-dialog-btn" onclick="galeriaCerrarAdmin(false)">Cancel</button>
-    </div>
-  </div>
-
   <!-- Zona invisible esquina superior derecha (activar admin) -->
   <div id="galeriaZonaAdmin" ondblclick="galeriaAbrirAdmin()"></div>
 
@@ -5689,23 +5663,47 @@ galeriaAuth.signInAnonymously().catch(error => {
   console.error('Auth error:', error);
 });
 
-galeriaAuth.onAuthStateChanged(user => {
+galeriaAuth.onAuthStateChanged(async user => {
   galeriaUsuarioActual = user;
   if (user) {
     console.log('Usuario conectado:', user.uid);
+    
+    // Verificar si es admin
+    try {
+      const snap = await galeriaDB.ref('admins/' + user.uid).once('value');
+      if (snap.exists() && snap.val() === true) {
+        galeriaAdminActivo = true;
+        galeriaMostrarIndicadorAdmin();
+        console.log('🔒 Modo admin activado automáticamente');
+        
+        // Si hay un dibujo seleccionado, mostrar botón delete
+        if (galeriaSeleccionado) {
+          document.getElementById('mypicturesBtnDelete').style.display = 'flex';
+        }
+      }
+    } catch (error) {
+      console.log('No es admin:', error);
+    }
   }
 });
 
 
-    // ==========================================================================
-    // MY PICTURES - ESTADO GLOBAL
-    // ==========================================================================
+// ==========================================================================
+// MY PICTURES - ESTADO GLOBAL
+// ==========================================================================
 
-    let galeriaDibujos = [];
-    let galeriaSeleccionado = null;
-    let galeriaViewerId = null;
-    let galeriaAdminActivo = false;
-    const GALERIA_ADMIN_PASS = 'marnueladmin';
+let galeriaDibujos = [];
+let galeriaSeleccionado = null;
+let galeriaViewerId = null;
+let galeriaAdminActivo = false;
+
+function galeriaAbrirAdmin() {
+  if (galeriaAdminActivo) {
+    if (confirm('Admin mode is active. Deactivate?')) galeriaDesactivarAdmin();
+  } else {
+    alert('You are not an admin on this device.');
+  }
+}
 
 
     // ==========================================================================
@@ -5964,13 +5962,6 @@ function galeriaSubirDibujo(titulo) {
       document.getElementById('galeriaDialogAdmin').style.display = 'block';
       setTimeout(() => document.getElementById('galeriaAdminPass').focus(), 10);
     }
-
-    function galeriaCerrarAdmin(intentarLogin) {
-      if (!intentarLogin) {
-        document.getElementById('galeriaDialogOverlay').style.display = 'none';
-        document.getElementById('galeriaDialogAdmin').style.display = 'none';
-        return;
-      }
 
       const pass = document.getElementById('galeriaAdminPass').value;
 
