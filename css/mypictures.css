@@ -1,0 +1,486 @@
+/* ==========================================================================
+   MY PICTURES - LAYOUT
+   ========================================================================== */
+.mypictures-contenido {
+  display: flex;
+  flex-direction: column;
+  background: #ece9d8;
+  height: 100%;
+}
+
+.mypictures-menu {
+  background: #ece9d8;
+  border-bottom: 1px solid #ababab;
+  padding: 3px 4px;
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  color: #000;
+  user-select: none;
+}
+
+.mypictures-menu-item        { padding: 3px 8px; cursor: default; border-radius: 2px; }
+.mypictures-menu-item:hover  { background: #316AC5; color: white; }
+.mypictures-menu-item u      { text-decoration: underline; }
+
+
+/* ==========================================================================
+   MY PICTURES - TOOLBAR
+   ========================================================================== */
+.mypictures-toolbar {
+  background: linear-gradient(to bottom, #f5f4ea 0%, #dfd8b8 100%);
+  border-bottom: 1px solid #808080;
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.mypictures-tb-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 4px;
+  background: transparent;
+  border: none;
+  cursor: default;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  color: #000;
+  height: 36px;
+}
+
+.mypictures-tb-btn img {
+  width: 40px;
+  height: 40px;
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-sizing: content-box;
+}
+
+.mypictures-tb-btn img:hover {
+  border: 1px solid #ff9933;
+  background: linear-gradient(to bottom, #fff5d8 0%, #ffe0a0 100%);
+}
+
+.mypictures-tb-btn img:active {
+  background: linear-gradient(to bottom, #ffe0a0 0%, #fff5d8 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.mypictures-tb-btn span {
+  cursor: default;
+  user-select: none;
+}
+
+.mypictures-tb-arrow {
+  font-size: 8px;
+  margin-left: 2px;
+  color: #333;
+}
+
+.mypictures-tb-sep {
+  width: 1px;
+  height: 20px;
+  background: #808080;
+  margin: 0 3px;
+}
+
+
+/* ==========================================================================
+   MY PICTURES - ADDRESS BAR
+   ========================================================================== */
+.mypictures-address {
+  background: #ece9d8;
+  border-bottom: 1px solid #808080;
+  padding: 3px 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  height: 23px;
+  box-sizing: border-box;
+}
+
+.mypictures-address-label {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  color: #000;
+}
+
+.mypictures-address-input {
+  flex: 1;
+  background: white;
+  border: 1px solid #7f9db9;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  color: #000;
+  height: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.mypictures-address-input img { width: 14px; height: 14px; flex-shrink: 0; }
+.mypictures-address-input span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mypictures-address-go {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  padding: 0 4px;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  color: #000;
+  cursor: default;
+  user-select: none;
+  height: 20px;
+}
+
+.mypictures-address-go-icon {
+  width: 29px;
+  height: 29px;
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  box-sizing: content-box;
+  flex-shrink: 0;
+  transition: filter 0.1s ease;
+}
+
+.mypictures-address-go-icon:hover  { filter: brightness(1.2); }
+.mypictures-address-go-icon:active { filter: brightness(0.9); }
+
+.mypictures-address-go-label { color: #000; }
+
+
+/* ==========================================================================
+   MY PICTURES - SIDEBAR
+   ========================================================================== */
+.mypictures-principal {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.mypictures-sidebar {
+  width: 190px;
+  background: linear-gradient(to bottom, #7695cd 0%, #648ac8 100%);
+  overflow-y: auto;
+  padding: 8px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.mypictures-sidebar::-webkit-scrollbar {
+  width: 14px;
+  background: #d4d0c8;
+}
+
+.mypictures-sidebar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #f5f4ea, #c8c4b0);
+  border: 1px solid #808080;
+}
+
+.mypictures-panel {
+  background: linear-gradient(to bottom, #f4f7fd 0%, #d8e4fb 100%);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+/* El panel de Picture Tasks necesita permitir overflow para el ícono */
+.mypictures-panel:has(.mypictures-panel-icon) {
+  overflow: visible;
+}
+
+/* Los demás paneles (simples) sí ocultan overflow */
+.mypictures-panel:has(.mypictures-panel-header-simple) {
+  background: #D7DEF8;
+  overflow: hidden;
+}
+
+/* Paneles con header simple */
+.mypictures-panel:has(.mypictures-panel-header-simple) {
+  background: #D7DEF8;
+}
+
+.mypictures-panel-header {
+  background: linear-gradient(to right, #0254B5 0%, #235DCC 100%);
+  color: white;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 6px;
+  position: relative;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Cuando hay ícono flotante, dejar espacio a la izquierda */
+.mypictures-panel-header:has(.mypictures-panel-icon) {
+  padding-left: 32px;
+}
+
+.mypictures-panel-header > span:first-of-type { flex: 1; }
+
+.mypictures-panel-header-simple {
+  background: linear-gradient(to right, #ffffff 0%, #D0D7FA 100%);
+  color: #0c327d;
+}
+
+/* Ícono azul de Picture Tasks (sobresale del header) */
+.mypictures-panel-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  position: absolute;
+  left: 1px;
+  top: -6px;
+  z-index: 2;
+}
+
+/* Toggle circular */
+.mypictures-panel-toggle {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 9px;
+  line-height: 1;
+  font-weight: bold;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.mypictures-panel-header-simple .mypictures-panel-toggle {
+  background: white;
+  color: #0c327d;
+  border: 1px solid #a0aed4;
+}
+
+.mypictures-panel-header:not(.mypictures-panel-header-simple) .mypictures-panel-toggle {
+  background: #0254B5;
+  color: white;
+  border: 1px solid #1a3a8a;
+}
+
+.mypictures-panel-body { padding: 6px 10px 10px 10px; }
+
+.mypictures-panel-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 4px;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  color: #0c327d;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.mypictures-panel-item:hover {
+  color: #1a5aef;
+  text-decoration: underline;
+}
+
+.mypictures-panel-item img { width: 16px; height: 16px; flex-shrink: 0; }
+
+.mypictures-panel-item-highlight {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+/* Details */
+.mypictures-details-titulo,
+.mypictures-details-tipo,
+.mypictures-details-info {
+  color: #0c327d;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.mypictures-details-info b { color: #000; }
+
+
+/* ==========================================================================
+   MY PICTURES - GALERÍA DE MINIATURAS
+   ========================================================================== */
+.mypictures-galeria {
+  flex: 1;
+  background: white;
+  overflow-y: auto;
+  padding: 15px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 15px;
+  align-content: start;
+  position: relative;
+}
+
+/* Watermark decorativo en la esquina inferior derecha */
+.mypictures-galeria::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  width: 180px;
+  height: 180px;
+  background: url('https://i.imgur.com/yqny2sS.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Asegurar que las miniaturas queden POR ENCIMA del watermark */
+.mypictures-thumb,
+.mypictures-vacio,
+.mypictures-loading {
+  position: relative;
+  z-index: 1;
+}
+.mypictures-galeria::-webkit-scrollbar {
+  width: 16px;
+  background: #ece9d8;
+}
+
+.mypictures-galeria::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #f5f4ea, #c8c4b0);
+  border: 1px solid #808080;
+}
+
+.mypictures-loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #666;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 12px;
+  padding: 40px;
+}
+
+.mypictures-vacio {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #666;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 12px;
+  padding: 60px 20px;
+  line-height: 1.6;
+}
+
+.mypictures-vacio-icono {
+  font-size: 48px;
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+.mypictures-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  user-select: none;
+}
+
+.mypictures-thumb:hover        { background: #e8f0fe; }
+.mypictures-thumb.seleccionado { background: #cfe2ff; border: 1px dotted #316AC5; }
+
+.mypictures-thumb-preview {
+  width: 90px;
+  height: 90px;
+  background: white;
+  border: 1px solid #808080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.mypictures-thumb-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.mypictures-thumb-nombre {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  color: #000;
+  margin-top: 4px;
+  max-width: 100px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mypictures-thumb.seleccionado .mypictures-thumb-nombre {
+  background: #316AC5;
+  color: white;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+
+/* ==========================================================================
+   MY PICTURES - BARRA DE ESTADO
+   ========================================================================== */
+.mypictures-status {
+  background: #ece9d8;
+  border-top: 1px solid #ffffff;
+  box-shadow: inset 0 1px 0 #808080;
+  padding: 2px 0;
+  display: flex;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  color: #000;
+  user-select: none;
+  flex-shrink: 0;
+  height: 20px;
+  box-sizing: border-box;
+}
+
+.mypictures-status-item {
+  padding: 2px 8px;
+  border-right: 1px solid #808080;
+  box-shadow: 1px 0 0 #ffffff;
+}
+
+.mypictures-status-item:last-child {
+  border-right: none;
+  box-shadow: none;
+  flex: 1;
+}

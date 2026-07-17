@@ -1,0 +1,356 @@
+/* ==========================================================================
+   PAINT - DIÁLOGOS MODALES (Base)
+   ========================================================================== */
+.paint-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 500;
+}
+
+.paint-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 340px;
+  background: #ece9d8;
+  border: 1px solid #003c74;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+  z-index: 501;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.paint-dialog-titlebar {
+  height: 24px;
+  background: linear-gradient(to bottom,
+    #0250DA 0%, #3A8FFF 3%, #1868EE 10%, #0153E9 18%,
+    #0153E9 75%, #1868EE 85%, #3088FF 95%, #002A9E 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 3px 0 6px;
+  user-select: none;
+  color: white;
+  font-weight: bold;
+}
+
+.paint-dialog-icon { width: 14px; height: 14px; margin-right: 6px; }
+
+.paint-dialog-title {
+  flex: 1;
+  font-size: 11px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.paint-dialog-close {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 45%,
+      rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.35) 100%), #d63030;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.5),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.paint-dialog-close:hover { filter: brightness(1.15); }
+.paint-dialog-close svg   { width: 10px; height: 10px; }
+
+.paint-dialog-body {
+  padding: 20px;
+  background: #ece9d8;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 60px;
+}
+
+.paint-dialog-body-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  padding: 15px 20px;
+}
+
+.paint-dialog-icono-msg::before {
+  content: "?";
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  background: linear-gradient(135deg, #d8e4f8, #7ba7e0);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50%;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.paint-dialog-mensaje {
+  flex: 1;
+  color: #000;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.paint-dialog-botones {
+  padding: 8px 15px 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  background: #ece9d8;
+}
+
+.paint-dialog-btn {
+  min-width: 75px;
+  height: 23px;
+  background: linear-gradient(to bottom, #f5f4ea 0%, #dfd8b8 100%);
+  border: 1px solid #003c74;
+  border-radius: 3px;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  color: #000;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.paint-dialog-btn:hover {
+  background: linear-gradient(to bottom, #fdfdfd 0%, #e8e2c5 100%);
+  border-color: #0850c7;
+}
+
+.paint-dialog-btn:active {
+  background: linear-gradient(to bottom, #c8c4b0 0%, #f5f4ea 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ==========================================================================
+   PAINT - DIÁLOGO SAVE AS
+   ========================================================================== */
+.paint-dialog-saveas { min-width: 400px; }
+
+.paint-dialog-saveas .paint-dialog-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  padding: 15px 20px;
+}
+
+.paint-dialog-saveas-campo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.paint-dialog-saveas-campo label {
+  min-width: 90px;
+  color: #000;
+  font-size: 11px;
+}
+
+.paint-dialog-saveas-campo input,
+.paint-dialog-saveas-campo select {
+  flex: 1;
+  height: 20px;
+  padding: 2px 4px;
+  border: 1px solid #808080;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  background: white;
+  box-sizing: border-box;
+}
+
+.paint-dialog-saveas-campo input:focus       { outline: 1px solid #0850c7; }
+.paint-dialog-saveas-campo select:disabled   { background: #f0f0f0; color: #666; }
+
+
+/* ==========================================================================
+   PAINT - DIÁLOGOS FLIP/ROTATE, STRETCH, EDIT COLORS, ABOUT
+   ========================================================================== */
+.paint-dialog-fliprotate   { min-width: 280px; }
+.paint-dialog-stretchskew  { min-width: 320px; }
+.paint-dialog-editcolors   { min-width: 480px; }
+.paint-dialog-about        { min-width: 380px; }
+
+.paint-dialog-groupbox {
+  border: 1px solid #808080;
+  padding: 12px 12px 8px 12px;
+  position: relative;
+  margin-top: 6px;
+}
+
+.paint-dialog-groupbox-title {
+  position: absolute;
+  top: -7px;
+  left: 8px;
+  background: #ece9d8;
+  padding: 0 4px;
+  font-size: 11px;
+  color: #000;
+}
+
+.paint-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 0;
+  cursor: pointer;
+  font-size: 11px;
+  color: #000;
+}
+
+.paint-radio-label input[type="radio"] { margin: 0; cursor: pointer; }
+
+.paint-radio-subgroup {
+  margin-left: 22px;
+  display: flex;
+  gap: 15px;
+  margin-top: 2px;
+}
+
+.paint-dialog-campo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0;
+}
+
+.paint-dialog-campo label {
+  min-width: 70px;
+  color: #000;
+  font-size: 11px;
+}
+
+.paint-dialog-campo input[type="number"],
+.paint-dialog-campo input[type="text"] {
+  width: 60px;
+  height: 20px;
+  padding: 2px 4px;
+  border: 1px solid #808080;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  background: white;
+  box-sizing: border-box;
+}
+
+.paint-dialog-campo input:focus { outline: 1px solid #0850c7; }
+.paint-dialog-campo span         { color: #000; font-size: 11px; }
+
+.paint-dialog-editcolors .paint-dialog-body-form {
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.paint-editcolors-basic  { flex: 1; }
+.paint-editcolors-custom { flex: 0 0 200px; }
+
+.paint-editcolors-label {
+  font-size: 11px;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+.paint-editcolors-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 20px);
+  gap: 2px;
+  margin-top: 4px;
+}
+
+.paint-editcolors-grid .paint-color-celda-editor {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #808080;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.paint-editcolors-grid .paint-color-celda-editor:hover {
+  outline: 1px solid #316AC5;
+  outline-offset: 1px;
+}
+
+.paint-editcolors-grid .paint-color-celda-editor.seleccionado {
+  outline: 2px solid #000;
+  outline-offset: 1px;
+}
+
+.paint-editcolors-rgb {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.paint-editcolors-preview {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #808080;
+  margin-bottom: 10px;
+}
+
+.paint-dialog-about-body {
+  padding: 20px 25px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: #ece9d8;
+}
+
+.paint-about-icono {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+}
+
+.paint-about-texto {
+  flex: 1;
+  color: #000;
+  font-size: 11px;
+}
+
+.paint-about-titulo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.paint-about-version {
+  font-size: 11px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.paint-about-separator {
+  height: 1px;
+  background: #808080;
+  margin: 8px 0;
+  box-shadow: 0 1px 0 #ffffff;
+}
+
+.paint-about-linea { margin: 3px 0; line-height: 1.4; }
+
+.paint-about-italic {
+  font-style: italic;
+  color: #444;
+  margin-top: 6px;
+}

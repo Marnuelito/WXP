@@ -1,0 +1,123 @@
+/* ==========================================================================
+   BARRA DE TAREAS
+   ========================================================================== */
+.barra-tareas {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background:
+    linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.15) 100%),
+    linear-gradient(to bottom,
+      #d0e4fa 0%, #8bbef5 3%, #4a92ee 8%, #3178e0 12%,
+      #3178e0 92%, #245ec4 96%, #1a3f8f 100%);
+  border-top: 1px solid #082a6b;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  font-family: 'Tahoma', sans-serif;
+}
+
+.boton-inicio {
+  height: 100%;
+  padding: 0 22px 2px 12px;
+  background: linear-gradient(to bottom,
+    #c8f0a8 0%, #8de060 3%, #5cc22c 8%, #379637 12%,
+    #379637 92%, #256b25 96%, #143d14 100%);
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  font-style: italic;
+  font-family: 'Tahoma', sans-serif;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  border: none;
+  border-right: 1px solid #0a4dc4;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 6px 0 8px -4px rgba(0, 0, 0, 0.4),
+    inset -6px 0 8px -4px rgba(0, 0, 0, 0.4);
+}
+
+.boton-inicio:hover  { filter: brightness(1.1); }
+.boton-inicio:active { filter: brightness(0.9); }
+
+.logo-windows {
+  height: 25px;
+  width: 28px;
+  display: block;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.6));
+}
+
+.tareas-ventanas {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  gap: 1px;
+  overflow: hidden;
+}
+
+.boton-tarea {
+  height: 35px;
+  min-width: 130px;
+  max-width: 180px;
+  padding: 0 8px;
+  background: linear-gradient(to bottom,
+    #4a92ee 0%, #3d84e8 8%, #3178e0 50%, #2966d0 92%, #2258bc 100%);
+  border: 1px solid #1a3f8f;
+  border-radius: 3px;
+  color: white;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  user-select: none;
+}
+
+.boton-tarea:hover { filter: brightness(1.12); }
+.boton-tarea img   { width: 16px; height: 16px; flex-shrink: 0; }
+.boton-tarea span  { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.boton-tarea.activo {
+  background: linear-gradient(to bottom,
+    #1a3f8f 0%, #245ec4 15%, #2b6ed4 70%, #3178e0 100%);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+  border-color: #0e3475;
+}
+
+.bandeja-sistema {
+  height: 100%;
+  min-width: 110px;
+  padding: 0 10px;
+  background: linear-gradient(to bottom,
+    #7dd4f5 0%, #4fbde8 3%, #21a1e0 8%, #1b8ad2 12%,
+    #1b8ad2 92%, #146ec0 96%, #0a4a90 100%);
+  border-left: 1px solid #0a3b8a;
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: white;
+  font-size: 12px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  user-select: none;
+}
+
+.reloj      { text-align: center; line-height: 1.1; cursor: default; }
+.reloj span { display: block; font-size: 11px; }

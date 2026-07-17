@@ -1,0 +1,122 @@
+/* ==========================================================================
+   VENTANAS - BASE
+   ========================================================================== */
+.ventana {
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 200px;
+  min-width: 300px;
+  min-height: 150px;
+  background: linear-gradient(to bottom,
+    #0153E9 0%, #0153E9 35%, #014ED8 65%, #0145C0 100%);
+  padding: 0 3px 5px 3px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  font-family: 'Tahoma', sans-serif;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ventana.maximizada { border-radius: 0; }
+.ventana.maximizada .ventana-barra { border-radius: 0; }
+.ventana.maximizada .resize-handle { display: none; }
+
+.ventana-barra {
+  height: 30px;
+  background: linear-gradient(to bottom,
+    #0250DA 0%, #0250DA 1%, #3A8FFF 3%, #1868EE 10%,
+    #0153E9 18%, #0153E9 75%, #1868EE 85%, #3088FF 95%,
+    #002A9E 98%, #002A9E 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 3px 0 6px;
+  cursor: move;
+  user-select: none;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  overflow: hidden;
+}
+
+.ventana-contenido {
+  background: #ece9d8;
+  width: 100%;
+  height: calc(100% - 30px);
+  overflow: hidden;
+}
+
+.ventana-icono {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-right: 6px;
+}
+
+.ventana-titulo {
+  flex: 1;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ventana-botones {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+  align-self: flex-end;
+  margin-bottom: 3px;
+}
+
+.btn-ventana {
+  width: 21px;
+  height: 21px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+    inset 2px 2px 2px rgba(255, 255, 255, 0.5),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.btn-ventana:hover  { filter: brightness(1.15); }
+.btn-ventana:active { filter: brightness(0.85); }
+.btn-ventana svg    { width: 12px; height: 12px; display: block; }
+
+.btn-minimizar,
+.btn-maximizar {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 45%,
+    rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.35) 100%), #2a7ee8;
+}
+
+.btn-cerrar {
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 45%,
+    rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.35) 100%), #d63030;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* ==========================================================================
+   VENTANAS - REDIMENSIONAMIENTO
+   ========================================================================== */
+.resize-handle { position: absolute; z-index: 100; background: transparent; }
+.resize-n  { top: 0;    left: 10px; right: 10px; height: 4px;  cursor: n-resize; }
+.resize-s  { bottom: 0; left: 10px; right: 10px; height: 4px;  cursor: s-resize; }
+.resize-e  { top: 10px; bottom: 10px; right: 0; width: 4px;    cursor: e-resize; }
+.resize-w  { top: 10px; bottom: 10px; left: 0;  width: 4px;    cursor: w-resize; }
+.resize-ne { top: 0;    right: 0; width: 10px;  height: 10px;  cursor: ne-resize; }
+.resize-nw { top: 0;    left: 0;  width: 10px;  height: 10px;  cursor: nw-resize; }
+.resize-se { bottom: 0; right: 0; width: 10px;  height: 10px;  cursor: se-resize; }
+.resize-sw { bottom: 0; left: 0;  width: 10px;  height: 10px;  cursor: sw-resize; }

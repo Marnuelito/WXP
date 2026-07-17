@@ -1,0 +1,12 @@
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url('https://i.imgur.com/Zk6TR5k.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Tahoma', sans-serif;
+  overflow: hidden;
+}

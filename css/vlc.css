@@ -1,0 +1,182 @@
+/* ==========================================================================
+   VLC - VENTANA
+   ========================================================================== */
+.vlc-contenido { display: flex; flex-direction: column; background: #ece9d8; }
+
+.vlc-menu {
+  background: #ece9d8;
+  border-bottom: 1px solid #ababab;
+  padding: 3px 4px;
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  color: #000;
+  user-select: none;
+}
+
+.vlc-menu-item        { padding: 3px 8px; cursor: default; border-radius: 2px; }
+.vlc-menu-item:hover  { background: #316AC5; color: white; }
+.vlc-menu-item u      { text-decoration: underline; }
+
+.vlc-area-video {
+  flex: 1;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  min-height: 100px;
+}
+
+.vlc-video-elemento {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.vlc-controles {
+  background: #ece9d8;
+  border-top: 1px solid #ababab;
+  height: 75px;
+  flex-shrink: 0;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.vlc-fila-progreso {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.vlc-fila-botones {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  height: 42px;
+}
+
+.vlc-tiempo {
+  color: black;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 11px;
+  user-select: none;
+  min-width: 40px;
+  text-align: center;
+}
+
+.vlc-barra-progreso {
+  flex: 1;
+  height: 10px;
+  background: linear-gradient(to bottom, #b8b5a0, #e8e4cf, #d8d4bc);
+  border-radius: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+  user-select: none;
+}
+
+.vlc-progreso-lleno {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(to bottom, #5a8fd6 0%, #a8c8f0 45%, #6a9fd8 55%, #3a70c0 100%);
+  border-radius: 6px;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+.vlc-btn-play-grande {
+  width: 40px;
+  height: 40px;
+  background: #fdfdfd;
+  border: 2px solid #6b8bbf;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 5px;
+}
+
+.vlc-btn-play-grande:hover  { background: #eaf2fc; border-color: #4a70a8; }
+.vlc-btn-play-grande:active { background: #d4e0f0; box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2); }
+.vlc-btn-play-grande svg    { width: 30px; height: 30px; display: block; }
+
+.vlc-grupo-botones { display: flex; gap: 1px; flex-shrink: 0; margin-right: 6px; }
+
+.vlc-btn {
+  width: 34px;
+  height: 30px;
+  background: #fdfdfd;
+  border: 2px solid #6b8bbf;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vlc-btn:hover        { background: #eaf2fc; border-color: #4a70a8; }
+.vlc-btn:active       { background: #d4e0f0; box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2); }
+.vlc-btn.activo       { background: #d4e0f0; border-color: #4a70a8; box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2); }
+.vlc-btn svg          { width: 22px; height: 22px; display: block; }
+
+.vlc-audio-contenedor { position: relative; width: 210px; height: 18px; flex-shrink: 0; }
+
+.vlc-mute-icono {
+  position: absolute;
+  top: 18px;
+  left: 86px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  user-select: none;
+  object-fit: contain;
+}
+
+.vlc-volumen-wrapper { position: absolute; top: 6px; right: 12px; }
+
+.vlc-volumen-porcentaje {
+  position: absolute;
+  top: -3px;
+  left: 14px;
+  color: black;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 12px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.vlc-volumen-barra {
+  width: 90px;
+  height: 28px;
+  cursor: pointer;
+  user-select: none;
+  display: block;
+}
+
+.vlc-resize-grip {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  z-index: 50;
+  background-image:
+    radial-gradient(circle, #808080 1px, transparent 1.5px),
+    radial-gradient(circle, #ffffff 1px, transparent 1.5px);
+  background-size: 4px 4px;
+  background-position: 0 0, 1px 1px;
+  -webkit-mask-image: linear-gradient(135deg, transparent 50%, black 50%);
+  mask-image: linear-gradient(135deg, transparent 50%, black 50%);
+}
