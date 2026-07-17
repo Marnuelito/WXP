@@ -178,6 +178,23 @@
   display: flex;
   min-height: 0;
   overflow: hidden;
+  position: relative;
+  background: white;  /* ← AGREGAR ESTA LÍNEA */
+}
+
+/* Watermark decorativo asomándose por la esquina inferior derecha */
+.mypictures-principal::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 260px;
+  height: 260px;
+  background: url('https://i.imgur.com/yqny2sS.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .mypictures-sidebar {
@@ -187,6 +204,8 @@
   padding: 8px;
   box-sizing: border-box;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .mypictures-sidebar::-webkit-scrollbar {
@@ -334,8 +353,9 @@
    ========================================================================== */
 .mypictures-galeria {
   flex: 1;
-  background: white;
+  background: transparent;  /* ← CAMBIAR de "white" a "transparent" */
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 15px;
   box-sizing: border-box;
   display: grid;
@@ -343,21 +363,7 @@
   gap: 15px;
   align-content: start;
   position: relative;
-}
-
-/* Watermark decorativo en la esquina inferior derecha */
-.mypictures-galeria::after {
-  content: "";
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
-  width: 180px;
-  height: 180px;
-  background: url('https://i.imgur.com/yqny2sS.png') no-repeat center center;
-  background-size: contain;
-  opacity: 0.35;
-  pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
 /* Asegurar que las miniaturas queden POR ENCIMA del watermark */
@@ -367,6 +373,7 @@
   position: relative;
   z-index: 1;
 }
+
 .mypictures-galeria::-webkit-scrollbar {
   width: 16px;
   background: #ece9d8;
@@ -394,6 +401,7 @@
   font-size: 12px;
   padding: 60px 20px;
   line-height: 1.6;
+  background: transparent;
 }
 
 .mypictures-vacio-icono {
