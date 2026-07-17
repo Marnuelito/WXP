@@ -1,0 +1,166 @@
+/* ==========================================================================
+   SCROLLBARS ESTILO WINDOWS XP
+   Se aplica a todas las ventanas del sistema
+   ========================================================================== */
+
+/* Scrollbar base */
+.ventana ::-webkit-scrollbar {
+  width: 17px;
+  height: 17px;
+  background: #f1efe2;
+}
+
+/* Track (fondo de la barra) — beige XP */
+.ventana ::-webkit-scrollbar-track {
+  background: #ffffff;
+  border: none;
+}
+
+/* Thumb (la parte que se arrastra) — degradé basado en #C0D3FB */
+.ventana ::-webkit-scrollbar-thumb {
+  background:
+    /* Grip: 3 líneas horizontales en el centro */
+    linear-gradient(to bottom,
+      transparent calc(50% - 5px),
+      rgba(255, 255, 255, 0.7) calc(50% - 5px),
+      rgba(255, 255, 255, 0.7) calc(50% - 4px),
+      transparent calc(50% - 4px),
+      transparent calc(50% - 2px),
+      rgba(255, 255, 255, 0.7) calc(50% - 2px),
+      rgba(255, 255, 255, 0.7) calc(50% - 1px),
+      transparent calc(50% - 1px),
+      transparent calc(50% + 1px),
+      rgba(255, 255, 255, 0.7) calc(50% + 1px),
+      rgba(255, 255, 255, 0.7) calc(50% + 2px),
+      transparent calc(50% + 2px)
+    ),
+    /* Degradé basado en #C0D3FB */
+    linear-gradient(to right,
+      #7a9de0 0%,
+      #a0bcee 20%,
+      #C0D3FB 50%,
+      #a0bcee 80%,
+      #6a8dd0 100%);
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.6),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.1),
+    0 0 2px rgba(0, 0, 0, 0.65);
+}
+
+.ventana ::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(to bottom,
+      transparent calc(50% - 5px),
+      rgba(255, 255, 255, 0.85) calc(50% - 5px),
+      rgba(255, 255, 255, 0.85) calc(50% - 4px),
+      transparent calc(50% - 4px),
+      transparent calc(50% - 2px),
+      rgba(255, 255, 255, 0.85) calc(50% - 2px),
+      rgba(255, 255, 255, 0.85) calc(50% - 1px),
+      transparent calc(50% - 1px),
+      transparent calc(50% + 1px),
+      rgba(255, 255, 255, 0.85) calc(50% + 1px),
+      rgba(255, 255, 255, 0.85) calc(50% + 2px),
+      transparent calc(50% + 2px)
+    ),
+    linear-gradient(to right,
+      #8aadef 0%,
+      #b0ccff 20%,
+      #d0e3ff 50%,
+      #b0ccff 80%,
+      #7a9de0 100%);
+}
+
+.ventana ::-webkit-scrollbar-thumb:active {
+  background:
+    linear-gradient(to right,
+      #6a8dd0 0%,
+      #90acde 20%,
+      #b0c3eb 50%,
+      #90acde 80%,
+      #5a7dc0 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Botones de flecha — mismo estilo azul del thumb */
+.ventana ::-webkit-scrollbar-button {
+  display: block;
+  height: 17px;
+  width: 17px;
+  background: linear-gradient(to bottom,
+    #d8e4fd 0%,
+    #C0D3FB 50%,
+    #a0bcee 100%);
+  border: 1px solid #ffffff;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.7),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.1),
+    0 0 2px rgba(0, 0, 0, 0.65);
+}
+
+.ventana ::-webkit-scrollbar-button:hover {
+  background: linear-gradient(to bottom,
+    #e8f0ff 0%,
+    #d0e0ff 50%,
+    #b0ccff 100%);
+}
+
+.ventana ::-webkit-scrollbar-button:active {
+  background: linear-gradient(to bottom,
+    #a0bcee 0%,
+    #C0D3FB 50%,
+    #d8e4fd 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Flecha ARRIBA */
+.ventana ::-webkit-scrollbar-button:vertical:decrement {
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='9' viewBox='0 0 9 9'><polygon points='4.5,2 8,7 1,7' fill='%23000'/></svg>"),
+    linear-gradient(to bottom, #d8e4fd 0%, #C0D3FB 50%, #a0bcee 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+}
+
+/* Flecha ABAJO */
+.ventana ::-webkit-scrollbar-button:vertical:increment {
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='9' viewBox='0 0 9 9'><polygon points='1,2 8,2 4.5,7' fill='%23000'/></svg>"),
+    linear-gradient(to bottom, #d8e4fd 0%, #C0D3FB 50%, #a0bcee 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+}
+
+/* Flecha IZQUIERDA */
+.ventana ::-webkit-scrollbar-button:horizontal:decrement {
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='9' viewBox='0 0 9 9'><polygon points='2,4.5 7,1 7,8' fill='%23000'/></svg>"),
+    linear-gradient(to bottom, #d8e4fd 0%, #C0D3FB 50%, #a0bcee 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+}
+
+/* Flecha DERECHA */
+.ventana ::-webkit-scrollbar-button:horizontal:increment {
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='9' viewBox='0 0 9 9'><polygon points='2,1 7,4.5 2,8' fill='%23000'/></svg>"),
+    linear-gradient(to bottom, #d8e4fd 0%, #C0D3FB 50%, #a0bcee 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+}
+
+/* Ocultar los botones dobles (solo mostrar uno en cada punta) */
+.ventana ::-webkit-scrollbar-button:vertical:start:increment,
+.ventana ::-webkit-scrollbar-button:vertical:end:decrement,
+.ventana ::-webkit-scrollbar-button:horizontal:start:increment,
+.ventana ::-webkit-scrollbar-button:horizontal:end:decrement {
+  display: none;
+}
+
+/* Esquina donde se cruzan los scrollbars vertical y horizontal */
+.ventana ::-webkit-scrollbar-corner {
+  background: #ece9d8;
+  border: none;
+}
