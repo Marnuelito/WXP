@@ -1,0 +1,115 @@
+<!-- ================= VENTANA: PAINT ================= -->
+<div class="ventana" id="paint"
+     style="display: none; width: 640px; height: 480px; top: 100px; left: 250px;">
+
+  <div class="resize-handle resize-n"></div>
+  <div class="resize-handle resize-s"></div>
+  <div class="resize-handle resize-e"></div>
+  <div class="resize-handle resize-w"></div>
+  <div class="resize-handle resize-ne"></div>
+  <div class="resize-handle resize-nw"></div>
+  <div class="resize-handle resize-se"></div>
+  <div class="resize-handle resize-sw"></div>
+
+  <div class="ventana-barra">
+    <img class="ventana-icono" src="https://i.imgur.com/qWETjsV.png" alt="">
+    <span class="ventana-titulo">untitled - Paint</span>
+
+    <div class="ventana-botones">
+      <button class="btn-ventana btn-minimizar" title="Minimizar" onclick="minimizarVentanaNativa('paint')">
+        <svg viewBox="0 0 12 12"><rect x="2" y="8" width="8" height="2" fill="white"/></svg>
+      </button>
+      <button class="btn-ventana btn-maximizar" title="Maximizar" onclick="maximizarVentanaNativa('paint')">
+        <svg viewBox="0 0 12 12">
+          <rect x="1.5" y="1.5" width="9" height="9" fill="none" stroke="white" stroke-width="1.5"/>
+          <rect x="1.5" y="1.5" width="9" height="2.5" fill="white"/>
+        </svg>
+      </button>
+      <button class="btn-ventana btn-cerrar" title="Cerrar" onclick="cerrarVentanaNativa('paint')">
+        <svg viewBox="0 0 12 12">
+          <path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="ventana-contenido paint-contenido">
+
+    <div class="paint-menu">
+      <span class="paint-menu-item" data-menu="file"><u>F</u>ile</span>
+      <span class="paint-menu-item" data-menu="edit"><u>E</u>dit</span>
+      <span class="paint-menu-item"><u>V</u>iew</span>
+      <span class="paint-menu-item" data-menu="image"><u>I</u>mage</span>
+      <span class="paint-menu-item" data-menu="colors"><u>C</u>olors</span>
+      <span class="paint-menu-item" data-menu="help"><u>H</u>elp</span>
+    </div>
+
+    <div class="paint-area-principal">
+
+      <div class="paint-toolbox">
+        <div class="paint-herramientas">
+          <button class="paint-btn" data-tool="seleccion-libre" title="Free-Form Select"><img src="https://i.imgur.com/KzFoxBQ.png" alt=""></button>
+          <button class="paint-btn" data-tool="seleccion-rect" title="Select"><img src="https://i.imgur.com/mtReq1h.png" alt=""></button>
+          <button class="paint-btn" data-tool="goma" title="Eraser"><img src="https://i.imgur.com/Zecb8ZN.png" alt=""></button>
+          <button class="paint-btn" data-tool="balde" title="Fill With Color"><img src="https://i.imgur.com/ZCCjQyu.png" alt=""></button>
+          <button class="paint-btn" data-tool="cuentagotas" title="Pick Color"><img src="https://i.imgur.com/ecwGwc2.png" alt=""></button>
+          <button class="paint-btn" data-tool="lupa" title="Magnifier"><img src="https://i.imgur.com/rXQCM4s.png" alt=""></button>
+          <button class="paint-btn activo" data-tool="lapiz" title="Pencil"><img src="https://i.imgur.com/dXxwxkn.png" alt=""></button>
+          <button class="paint-btn" data-tool="pincel" title="Brush"><img src="https://i.imgur.com/suqGxej.png" alt=""></button>
+          <button class="paint-btn" data-tool="aerografo" title="Airbrush"><img src="https://i.imgur.com/umDYMUz.png" alt=""></button>
+          <button class="paint-btn" data-tool="texto" title="Text"><img src="https://i.imgur.com/FmqHUa0.png" alt=""></button>
+          <button class="paint-btn" data-tool="linea" title="Line"><img src="https://i.imgur.com/V8QRqsY.png" alt=""></button>
+          <button class="paint-btn" data-tool="curva" title="Curve"><img src="https://i.imgur.com/3XsvR1m.png" alt=""></button>
+          <button class="paint-btn" data-tool="rectangulo" title="Rectangle"><img src="https://i.imgur.com/n2gihp0.png" alt=""></button>
+          <button class="paint-btn" data-tool="poligono" title="Polygon"><img src="https://i.imgur.com/eaTyouH.png" alt=""></button>
+          <button class="paint-btn" data-tool="elipse" title="Ellipse"><img src="https://i.imgur.com/BbhWbGn.png" alt=""></button>
+          <button class="paint-btn" data-tool="rect-redondeado" title="Rounded Rectangle"><img src="https://i.imgur.com/filuT7F.png" alt=""></button>
+        </div>
+
+        <div class="paint-opciones-herramienta" id="paintOpcionesHerramienta"></div>
+      </div>
+
+      <div class="paint-area-canvas" id="paintAreaCanvas">
+        <canvas id="paintCanvas"></canvas>
+        <textarea id="paintTextarea" style="display:none;"></textarea>
+
+        <div id="paintTextToolbar" style="display:none;">
+          <select id="paintTextFuente">
+            <option value="Arial">Arial</option>
+            <option value="Tahoma" selected>Tahoma</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+            <option value="Impact">Impact</option>
+          </select>
+          <select id="paintTextTamano">
+            <option value="8">8</option><option value="10">10</option>
+            <option value="12" selected>12</option><option value="14">14</option>
+            <option value="16">16</option><option value="18">18</option>
+            <option value="20">20</option><option value="24">24</option>
+            <option value="28">28</option><option value="36">36</option>
+            <option value="48">48</option><option value="72">72</option>
+          </select>
+          <button id="paintTextBold" type="button" title="Bold"><b>B</b></button>
+          <button id="paintTextItalic" type="button" title="Italic"><i>I</i></button>
+          <button id="paintTextUnderline" type="button" title="Underline"><u>U</u></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="paint-inferior">
+      <div class="paint-color-actual">
+        <div class="paint-color-secundario" id="paintColorSecundario"></div>
+        <div class="paint-color-primario" id="paintColorPrimario"></div>
+      </div>
+      <div class="paint-paleta"></div>
+    </div>
+
+    <div class="paint-barra-estado">
+      <span class="paint-estado-item paint-estado-ayuda">For Help, click Help Topics on the Help Menu.</span>
+      <span class="paint-estado-item paint-estado-coords" id="paintCoords"></span>
+      <span class="paint-estado-item paint-estado-tamano" id="paintTamano"></span>
+    </div>
+  </div>
+</div>

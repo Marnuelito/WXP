@@ -1,0 +1,188 @@
+<!-- ================= VENTANA: VLC ================= -->
+<div class="ventana ventana-vlc" id="vlc-nativo"
+     style="display: none; width: 660px; height: 500px; top: 80px; left: 400px;">
+
+  <div class="resize-handle resize-n"></div>
+  <div class="resize-handle resize-s"></div>
+  <div class="resize-handle resize-e"></div>
+  <div class="resize-handle resize-w"></div>
+  <div class="resize-handle resize-ne"></div>
+  <div class="resize-handle resize-nw"></div>
+  <div class="resize-handle resize-se"></div>
+  <div class="resize-handle resize-sw"></div>
+
+  <div class="ventana-barra">
+    <img class="ventana-icono" src="https://i.imgur.com/wkLrNnm.png" alt="">
+    <span class="ventana-titulo">VLC media player</span>
+    <div class="ventana-botones">
+      <button class="btn-ventana btn-minimizar" title="Minimizar" onclick="minimizarVentanaNativa('vlc-nativo')">
+        <svg viewBox="0 0 12 12"><rect x="2" y="8" width="8" height="2" fill="white"/></svg>
+      </button>
+      <button class="btn-ventana btn-maximizar" title="Maximizar" onclick="maximizarVentanaNativa('vlc-nativo')">
+        <svg viewBox="0 0 12 12">
+          <rect x="1.5" y="1.5" width="9" height="9" fill="none" stroke="white" stroke-width="1.5"/>
+          <rect x="1.5" y="1.5" width="9" height="2.5" fill="white"/>
+        </svg>
+      </button>
+      <button class="btn-ventana btn-cerrar" title="Cerrar" onclick="cerrarVentanaNativa('vlc-nativo')">
+        <svg viewBox="0 0 12 12">
+          <path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="ventana-contenido vlc-contenido">
+    <div class="vlc-menu">
+      <span class="vlc-menu-item"><u>M</u>edia</span>
+      <span class="vlc-menu-item">P<u>l</u>ayback</span>
+      <span class="vlc-menu-item"><u>A</u>udio</span>
+      <span class="vlc-menu-item"><u>V</u>ideo</span>
+      <span class="vlc-menu-item"><u>S</u>ubtitle</span>
+      <span class="vlc-menu-item">T<u>o</u>ols</span>
+      <span class="vlc-menu-item">Vie<u>w</u></span>
+      <span class="vlc-menu-item"><u>H</u>elp</span>
+    </div>
+
+    <div class="vlc-area-video">
+      <video id="vlcVideoNativo" class="vlc-video-elemento" playsinline>
+        <source id="vlcSourceNativo" src="" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="vlc-controles">
+      <div class="vlc-resize-grip"></div>
+
+      <div class="vlc-fila-progreso">
+        <span class="vlc-tiempo" id="vlcTiempoActualNativo">00:00</span>
+        <div class="vlc-barra-progreso" id="vlcBarraProgresoNativo">
+          <div class="vlc-progreso-lleno" id="vlcProgresoLlenoNativo"></div>
+        </div>
+        <span class="vlc-tiempo" id="vlcTiempoRestanteNativo">-00:00</span>
+      </div>
+
+      <div class="vlc-fila-botones">
+        <button class="vlc-btn-play-grande" id="vlcBotonPlayPauseNativo" onclick="pausarVideoNativo()" title="Play/Pause">
+          <svg viewBox="0 0 20 20" shape-rendering="crispEdges">
+            <polygon id="vlcIconoPlayNativo" points="5,3 5,17 17,10" fill="#666" stroke="#4a4a4a" stroke-width="0.5" stroke-linejoin="round"/>
+            <g id="vlcIconoPauseNativo" style="display: none;">
+              <rect x="4" y="3" width="4" height="14" fill="#666" stroke="#4a4a4a" stroke-width="0.5"/>
+              <rect x="12" y="3" width="4" height="14" fill="#666" stroke="#4a4a4a" stroke-width="0.5"/>
+            </g>
+          </svg>
+        </button>
+
+        <div class="vlc-grupo-botones">
+          <button class="vlc-btn" onclick="videoAnteriorNativo()" title="Anterior">
+            <svg viewBox="0 0 20 20" shape-rendering="crispEdges">
+              <g fill="#666" stroke="#4a4a4a" stroke-width="0.5" stroke-linejoin="round">
+                <rect x="3" y="4" width="2" height="12"/>
+                <polygon points="16,4 16,16 10,10"/>
+                <polygon points="11,4 11,16 5,10"/>
+              </g>
+            </svg>
+          </button>
+          <button class="vlc-btn" title="Stop">
+            <svg viewBox="0 0 20 20" shape-rendering="crispEdges">
+              <rect x="5" y="5" width="10" height="10" fill="#666" stroke="#4a4a4a" stroke-width="0.5"/>
+            </svg>
+          </button>
+          <button class="vlc-btn" onclick="videoSiguienteNativo()" title="Siguiente">
+            <svg viewBox="0 0 20 20" shape-rendering="crispEdges">
+              <g fill="#666" stroke="#4a4a4a" stroke-width="0.5" stroke-linejoin="round">
+                <polygon points="4,4 4,16 10,10"/>
+                <polygon points="9,4 9,16 15,10"/>
+                <rect x="15" y="4" width="2" height="12"/>
+              </g>
+            </svg>
+          </button>
+        </div>
+
+        <div class="vlc-grupo-botones">
+          <button class="vlc-btn" onclick="toggleFullscreenNativo()" title="Fullscreen">
+            <svg viewBox="0 0 20 20" shape-rendering="crispEdges">
+              <g fill="#666" stroke="#4a4a4a" stroke-width="0.5">
+                <rect x="3" y="3" width="2" height="5"/><rect x="3" y="3" width="5" height="2"/>
+                <rect x="15" y="3" width="2" height="5"/><rect x="12" y="3" width="5" height="2"/>
+                <rect x="3" y="12" width="2" height="5"/><rect x="3" y="15" width="5" height="2"/>
+                <rect x="15" y="12" width="2" height="5"/><rect x="12" y="15" width="5" height="2"/>
+              </g>
+            </svg>
+          </button>
+          <button class="vlc-btn" title="Equalizer">
+            <svg viewBox="0 0 20 20" shape-rendering="crispEdges">
+              <g fill="#666" stroke="#4a4a4a" stroke-width="0.5">
+                <rect x="4" y="2" width="2" height="16"/><rect x="9" y="2" width="2" height="16"/>
+                <rect x="14" y="2" width="2" height="16"/><rect x="2" y="12" width="6" height="2"/>
+                <rect x="7" y="5" width="6" height="2"/><rect x="12" y="9" width="6" height="2"/>
+              </g>
+            </svg>
+          </button>
+        </div>
+
+        <div class="vlc-grupo-botones">
+          <button class="vlc-btn" title="Playlist">
+            <svg viewBox="0 0 20 20" shape-rendering="crispEdges">
+              <g fill="#666" stroke="#4a4a4a" stroke-width="0.5">
+                <rect x="3" y="5" width="2" height="2"/><rect x="3" y="9" width="2" height="2"/>
+                <rect x="3" y="13" width="2" height="2"/><rect x="7" y="5" width="10" height="2"/>
+                <rect x="7" y="9" width="10" height="2"/><rect x="7" y="13" width="10" height="2"/>
+              </g>
+            </svg>
+          </button>
+          <button class="vlc-btn" id="vlcBotonLoopNativo" onclick="toggleLoopNativo()" title="Loop">
+            <svg viewBox="0 0 20 20">
+              <g fill="#666" stroke="#4a4a4a" stroke-width="0.5" stroke-linejoin="round">
+                <path d="M 5,7 Q 5,4 8,4 L 14,4 L 14,2 L 18,5 L 14,8 L 14,6 L 8,6 Q 7,6 7,7 L 7,9 L 5,9 Z"/>
+                <path d="M 15,13 Q 15,16 12,16 L 6,16 L 6,18 L 2,15 L 6,12 L 6,14 L 12,14 Q 13,14 13,13 L 13,11 L 15,11 Z"/>
+              </g>
+            </svg>
+          </button>
+          <button class="vlc-btn" title="Shuffle">
+            <svg viewBox="0 0 20 20" shape-rendering="crispEdges">
+              <g stroke="#4a4a4a" stroke-width="0.5">
+                <path d="M 2,5 L 5,5 L 12,14 L 15,14" stroke="#666" stroke-width="2.2" fill="none"/>
+                <path d="M 2,15 L 5,15 L 12,6 L 15,6" stroke="#666" stroke-width="2.2" fill="none"/>
+                <polygon points="13,2 18,5 13,8" fill="#666"/>
+                <polygon points="13,11 18,14 13,17" fill="#666"/>
+              </g>
+            </svg>
+          </button>
+        </div>
+
+        <div style="flex: 1;"></div>
+
+        <div class="vlc-audio-contenedor">
+          <img class="vlc-mute-icono" id="vlcMuteIconoNativo" src="https://i.imgur.com/X0eEkVm.png" onclick="toggleMuteNativo()" title="Mute">
+          <div class="vlc-volumen-wrapper">
+            <span class="vlc-volumen-porcentaje" id="vlcVolumenPorcentajeNativo">25%</span>
+            <svg class="vlc-volumen-barra" id="vlcVolumenBarraNativo" viewBox="0 0 70 15" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="fondoBarraNativo" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#d0cdb8"/>
+                  <stop offset="100%" stop-color="#ebe8d0"/>
+                </linearGradient>
+                <linearGradient id="rellenoBarraNativo" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#8de068"/>
+                  <stop offset="100%" stop-color="#3a9a2a"/>
+                </linearGradient>
+                <clipPath id="clipRellenoNativo">
+                  <rect id="vlcVolumenLlenoNativo" x="0" y="0" width="17.5" height="15"/>
+                </clipPath>
+                <clipPath id="clipFormaNativo">
+                  <path d="M 2,14 Q 0,14 1,13 L 66,2 Q 68,2 68,4 L 68,14 Z"/>
+                </clipPath>
+              </defs>
+              <path d="M 2,14 Q 0,14 1,13 L 66,2 Q 68,2 68,4 L 68,14 Z" fill="url(#fondoBarraNativo)"/>
+              <g clip-path="url(#clipFormaNativo)">
+                <rect x="0" y="0" width="70" height="15" fill="url(#rellenoBarraNativo)" clip-path="url(#clipRellenoNativo)"/>
+              </g>
+              <path d="M 2,14 Q 0,14 1,13 L 66,2 Q 68,2 68,4 L 68,14 Z" fill="none" stroke="#666" stroke-width="1.2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

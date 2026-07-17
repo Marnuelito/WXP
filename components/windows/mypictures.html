@@ -1,0 +1,163 @@
+<!-- ================= VENTANA: MY PICTURES ================= -->
+<div class="ventana" id="mypictures"
+     style="display: none; width: 720px; height: 520px; top: 60px; left: 300px;">
+
+  <div class="resize-handle resize-n"></div>
+  <div class="resize-handle resize-s"></div>
+  <div class="resize-handle resize-e"></div>
+  <div class="resize-handle resize-w"></div>
+  <div class="resize-handle resize-ne"></div>
+  <div class="resize-handle resize-nw"></div>
+  <div class="resize-handle resize-se"></div>
+  <div class="resize-handle resize-sw"></div>
+
+  <div class="ventana-barra">
+    <img class="ventana-icono" src="https://i.imgur.com/5B3dJrk.png" alt="">
+    <span class="ventana-titulo">My Pictures</span>
+    <div class="ventana-botones">
+      <button class="btn-ventana btn-minimizar" title="Minimizar" onclick="minimizarVentanaNativa('mypictures')">
+        <svg viewBox="0 0 12 12"><rect x="2" y="8" width="8" height="2" fill="white"/></svg>
+      </button>
+      <button class="btn-ventana btn-maximizar" title="Maximizar" onclick="maximizarVentanaNativa('mypictures')">
+        <svg viewBox="0 0 12 12">
+          <rect x="1.5" y="1.5" width="9" height="9" fill="none" stroke="white" stroke-width="1.5"/>
+          <rect x="1.5" y="1.5" width="9" height="2.5" fill="white"/>
+        </svg>
+      </button>
+      <button class="btn-ventana btn-cerrar" title="Cerrar" onclick="cerrarVentanaNativa('mypictures')">
+        <svg viewBox="0 0 12 12">
+          <path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="ventana-contenido mypictures-contenido">
+
+    <div class="mypictures-menu">
+      <span class="mypictures-menu-item"><u>F</u>ile</span>
+      <span class="mypictures-menu-item"><u>E</u>dit</span>
+      <span class="mypictures-menu-item"><u>V</u>iew</span>
+      <span class="mypictures-menu-item">F<u>a</u>vorites</span>
+      <span class="mypictures-menu-item"><u>T</u>ools</span>
+      <span class="mypictures-menu-item"><u>H</u>elp</span>
+    </div>
+
+    <div class="mypictures-toolbar">
+      <div class="mypictures-tb-btn"><img src="https://i.imgur.com/PVtX994.png" alt="Back" title="Back"><span>Back</span><span class="mypictures-tb-arrow">▼</span></div>
+      <div class="mypictures-tb-btn"><img src="https://i.imgur.com/BYaOIQ3.png" alt="Forward" title="Forward"></div>
+      <div class="mypictures-tb-sep"></div>
+      <div class="mypictures-tb-btn"><img src="https://i.imgur.com/egOFvc3.png" alt="Search" title="Search"><span>Search</span></div>
+      <div class="mypictures-tb-btn"><img src="https://i.imgur.com/ACzhW5x.png" alt="Folders" title="Folders"><span>Folders</span></div>
+      <div class="mypictures-tb-sep"></div>
+      <div class="mypictures-tb-btn"><img src="https://i.imgur.com/PyyS2xE.png" alt="Views" title="Views"><span class="mypictures-tb-arrow">▼</span></div>
+    </div>
+
+    <div class="mypictures-address">
+      <span class="mypictures-address-label">Address</span>
+      <div class="mypictures-address-input">
+        <img src="https://i.imgur.com/5B3dJrk.png" alt="">
+        <span>C:\Documents and Settings\Guest\My Documents\My Pictures</span>
+      </div>
+      <div class="mypictures-address-go">
+        <img src="https://i.imgur.com/ppL5SzN.png" alt="Go" class="mypictures-address-go-icon" title="Go">
+        <span class="mypictures-address-go-label">Go</span>
+      </div>
+    </div>
+
+    <div class="mypictures-principal">
+
+      <div class="mypictures-sidebar">
+
+        <div class="mypictures-panel">
+          <div class="mypictures-panel-header">
+            <img src="https://i.imgur.com/aFJXoVj.png" alt="" class="mypictures-panel-icon">
+            <span>Picture Tasks</span>
+            <span class="mypictures-panel-toggle">
+              <svg viewBox="0 0 10 10" width="10" height="10">
+                <path d="M 2,8 L 5,5 L 8,8" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 2,5 L 5,2 L 8,5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+          <div class="mypictures-panel-body">
+            <div class="mypictures-panel-item"><img src="https://i.imgur.com/GUu4CDJ.png" alt=""><span>View as a slide show</span></div>
+            <div class="mypictures-panel-item"><img src="https://i.imgur.com/gVZsqz9.png" alt=""><span>Order prints online</span></div>
+            <div class="mypictures-panel-item"><img src="https://i.imgur.com/NP0GTyi.png" alt=""><span>Print pictures</span></div>
+            <div class="mypictures-panel-item mypictures-panel-item-highlight" onclick="mypicturesAbrirPaint()">
+              <img src="https://i.imgur.com/oCVymzu.png" alt=""><span>Publish new drawing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mypictures-panel" id="mypicturesPanelSeleccion" style="display: none;">
+          <div class="mypictures-panel-header mypictures-panel-header-simple">
+            <span>File and Folder Tasks</span>
+            <span class="mypictures-panel-toggle">
+              <svg viewBox="0 0 10 10" width="10" height="10">
+                <path d="M 2,8 L 5,5 L 8,8" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 2,5 L 5,2 L 8,5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+          <div class="mypictures-panel-body">
+            <div class="mypictures-panel-item" id="mypicturesBtnDelete" style="display: none;">
+              <span style="width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;font-size:14px;">🗑️</span>
+              <span>Delete this picture</span>
+            </div>
+            <div class="mypictures-panel-item" onclick="mypicturesAbrirActual()">
+              <img src="https://i.imgur.com/cpyxdBW.png" alt=""><span>Open this picture</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mypictures-panel">
+          <div class="mypictures-panel-header mypictures-panel-header-simple">
+            <span>Other Places</span>
+            <span class="mypictures-panel-toggle">
+              <svg viewBox="0 0 10 10" width="10" height="10">
+                <path d="M 2,8 L 5,5 L 8,8" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 2,5 L 5,2 L 8,5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+          <div class="mypictures-panel-body">
+            <div class="mypictures-panel-item"><img src="https://i.imgur.com/y5COKN8.png" alt=""><span>Desktop</span></div>
+            <div class="mypictures-panel-item"><img src="https://i.imgur.com/4DPqpmD.png" alt=""><span>My Documents</span></div>
+            <div class="mypictures-panel-item"><img src="https://i.imgur.com/ReKToGx.png" alt=""><span>My Computer</span></div>
+            <div class="mypictures-panel-item"><img src="https://i.imgur.com/HK5EuE3.png" alt=""><span>Shared Pictures</span></div>
+          </div>
+        </div>
+
+        <div class="mypictures-panel">
+          <div class="mypictures-panel-header mypictures-panel-header-simple">
+            <span>Details</span>
+            <span class="mypictures-panel-toggle">
+              <svg viewBox="0 0 10 10" width="10" height="10">
+                <path d="M 2,8 L 5,5 L 8,8" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M 2,5 L 5,2 L 8,5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+          <div class="mypictures-panel-body" id="mypicturesDetails">
+            <div class="mypictures-details-titulo"><b>My Pictures</b></div>
+            <div class="mypictures-details-tipo">File Folder</div>
+            <div class="mypictures-details-info" id="mypicturesTotal">0 pictures</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mypictures-galeria" id="mypicturesGaleria">
+        <div class="mypictures-loading">Loading pictures...</div>
+      </div>
+
+    </div>
+
+    <div class="mypictures-status">
+      <span class="mypictures-status-item" id="mypicturesStatusCount">0 objects</span>
+      <span class="mypictures-status-item">My Computer</span>
+    </div>
+
+  </div>
+</div>
