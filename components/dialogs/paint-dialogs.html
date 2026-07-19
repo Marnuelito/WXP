@@ -1,0 +1,193 @@
+<!-- ================= DIÁLOGOS PAINT ================= -->
+<div id="paintDialogOverlay" class="paint-dialog-overlay" style="display: none;"></div>
+
+<div id="paintDialogSave" class="paint-dialog" style="display: none;">
+  <div class="paint-dialog-titlebar">
+    <img class="paint-dialog-icon" src="https://i.imgur.com/qWETjsV.png" alt="">
+    <span class="paint-dialog-title">Paint</span>
+    <button class="paint-dialog-close" onclick="paintCerrarDialogoSave('cancel')">
+      <svg viewBox="0 0 12 12"><path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="paint-dialog-body">
+    <div class="paint-dialog-icono-msg"></div>
+    <div class="paint-dialog-mensaje">
+      Save changes to <span id="paintDialogSaveNombre">untitled</span>?
+    </div>
+  </div>
+  <div class="paint-dialog-botones">
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoSave('yes')">Yes</button>
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoSave('no')">No</button>
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoSave('cancel')">Cancel</button>
+  </div>
+</div>
+
+<div id="paintDialogSaveAs" class="paint-dialog paint-dialog-saveas" style="display: none;">
+  <div class="paint-dialog-titlebar">
+    <img class="paint-dialog-icon" src="https://i.imgur.com/qWETjsV.png" alt="">
+    <span class="paint-dialog-title">Save As</span>
+    <button class="paint-dialog-close" onclick="paintCerrarDialogoSaveAs(false)">
+      <svg viewBox="0 0 12 12"><path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="paint-dialog-body">
+    <div class="paint-dialog-saveas-campo">
+      <label for="paintDialogSaveAsInput">File name:</label>
+      <input type="text" id="paintDialogSaveAsInput" value="untitled">
+    </div>
+    <div class="paint-dialog-saveas-campo">
+      <label>Save as type:</label>
+      <select disabled><option>PNG (*.png)</option></select>
+    </div>
+  </div>
+  <div class="paint-dialog-botones">
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoSaveAs(true)">Save</button>
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoSaveAs(false)">Cancel</button>
+  </div>
+</div>
+
+<div id="paintDialogFlipRotate" class="paint-dialog paint-dialog-fliprotate" style="display: none;">
+  <div class="paint-dialog-titlebar">
+    <img class="paint-dialog-icon" src="https://i.imgur.com/qWETjsV.png" alt="">
+    <span class="paint-dialog-title">Flip and Rotate</span>
+    <button class="paint-dialog-close" onclick="paintCerrarDialogoFlipRotate(false)">
+      <svg viewBox="0 0 12 12"><path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="paint-dialog-body paint-dialog-body-form">
+    <div class="paint-dialog-groupbox">
+      <div class="paint-dialog-groupbox-title">Flip or rotate</div>
+      <label class="paint-radio-label"><input type="radio" name="fliprotate" value="flip-h" checked> Flip horizontal</label>
+      <label class="paint-radio-label"><input type="radio" name="fliprotate" value="flip-v"> Flip vertical</label>
+      <label class="paint-radio-label"><input type="radio" name="fliprotate" value="rotate"> Rotate by angle</label>
+      <div class="paint-radio-subgroup">
+        <label class="paint-radio-label"><input type="radio" name="rotateAngle" value="90" checked> 90°</label>
+        <label class="paint-radio-label"><input type="radio" name="rotateAngle" value="180"> 180°</label>
+        <label class="paint-radio-label"><input type="radio" name="rotateAngle" value="270"> 270°</label>
+      </div>
+    </div>
+  </div>
+  <div class="paint-dialog-botones">
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoFlipRotate(true)">OK</button>
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoFlipRotate(false)">Cancel</button>
+  </div>
+</div>
+
+<div id="paintDialogStretchSkew" class="paint-dialog paint-dialog-stretchskew" style="display: none;">
+  <div class="paint-dialog-titlebar">
+    <img class="paint-dialog-icon" src="https://i.imgur.com/qWETjsV.png" alt="">
+    <span class="paint-dialog-title">Stretch and Skew</span>
+    <button class="paint-dialog-close" onclick="paintCerrarDialogoStretchSkew(false)">
+      <svg viewBox="0 0 12 12"><path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="paint-dialog-body paint-dialog-body-form">
+    <div class="paint-dialog-groupbox">
+      <div class="paint-dialog-groupbox-title">Stretch</div>
+      <div class="paint-dialog-campo"><label>Horizontal:</label><input type="number" id="paintStretchH" value="100" min="1" max="500"><span>%</span></div>
+      <div class="paint-dialog-campo"><label>Vertical:</label><input type="number" id="paintStretchV" value="100" min="1" max="500"><span>%</span></div>
+    </div>
+    <div class="paint-dialog-groupbox">
+      <div class="paint-dialog-groupbox-title">Skew</div>
+      <div class="paint-dialog-campo"><label>Horizontal:</label><input type="number" id="paintSkewH" value="0" min="-89" max="89"><span>Degrees</span></div>
+      <div class="paint-dialog-campo"><label>Vertical:</label><input type="number" id="paintSkewV" value="0" min="-89" max="89"><span>Degrees</span></div>
+    </div>
+  </div>
+  <div class="paint-dialog-botones">
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoStretchSkew(true)">OK</button>
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoStretchSkew(false)">Cancel</button>
+  </div>
+</div>
+
+<div id="paintDialogEditColors" class="paint-dialog paint-dialog-editcolors" style="display: none;">
+  <div class="paint-dialog-titlebar">
+    <img class="paint-dialog-icon" src="https://i.imgur.com/qWETjsV.png" alt="">
+    <span class="paint-dialog-title">Edit Colors</span>
+    <button class="paint-dialog-close" onclick="paintCerrarDialogoEditColors(false)">
+      <svg viewBox="0 0 12 12"><path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="paint-dialog-body paint-dialog-body-form">
+    <div class="paint-editcolors-basic">
+      <div class="paint-editcolors-label">Basic colors:</div>
+      <div class="paint-editcolors-grid" id="paintEditColorsGrid"></div>
+    </div>
+    <div class="paint-editcolors-custom">
+      <div class="paint-editcolors-rgb">
+        <div class="paint-editcolors-preview" id="paintEditColorsPreview" style="background:#000000;"></div>
+        <div class="paint-dialog-campo"><label>Red:</label><input type="number" id="paintColorR" value="0" min="0" max="255"></div>
+        <div class="paint-dialog-campo"><label>Green:</label><input type="number" id="paintColorG" value="0" min="0" max="255"></div>
+        <div class="paint-dialog-campo"><label>Blue:</label><input type="number" id="paintColorB" value="0" min="0" max="255"></div>
+        <div class="paint-dialog-campo"><label>Hex:</label><input type="text" id="paintColorHex" value="#000000" maxlength="7"></div>
+      </div>
+    </div>
+  </div>
+  <div class="paint-dialog-botones">
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoEditColors(true)">OK</button>
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoEditColors(false)">Cancel</button>
+  </div>
+</div>
+
+<div id="paintDialogAbout" class="paint-dialog paint-dialog-about" style="display: none;">
+  <div class="paint-dialog-titlebar">
+    <img class="paint-dialog-icon" src="https://i.imgur.com/qWETjsV.png" alt="">
+    <span class="paint-dialog-title">About Paint</span>
+    <button class="paint-dialog-close" onclick="paintCerrarDialogoAbout()">
+      <svg viewBox="0 0 12 12"><path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="paint-dialog-body paint-dialog-about-body">
+    <img class="paint-about-icono" src="https://i.imgur.com/qWETjsV.png" alt="Paint">
+    <div class="paint-about-texto">
+      <div class="paint-about-titulo">Paint</div>
+      <div class="paint-about-version">Version 5.1 (Build 2600.xpsp_sp3)</div>
+      <div class="paint-about-separator"></div>
+      <div class="paint-about-linea">Recreated in HTML / CSS / JavaScript</div>
+      <div class="paint-about-linea">by <b>Marnuel</b> · 2025</div>
+      <div class="paint-about-separator"></div>
+      <div class="paint-about-linea paint-about-italic">A tribute to Windows XP ✨</div>
+    </div>
+  </div>
+  <div class="paint-dialog-botones">
+    <button class="paint-dialog-btn" onclick="paintCerrarDialogoAbout()">OK</button>
+  </div>
+</div>
+
+<!-- ================= MENÚS DESPLEGABLES PAINT ================= -->
+<div id="paintMenuFile" class="paint-dropdown-menu" style="display: none;">
+  <div class="paint-menu-item-drop" data-action="new"><span class="paint-menu-label">New</span><span class="paint-menu-shortcut">Ctrl+N</span></div>
+  <div class="paint-menu-separator"></div>
+  <div class="paint-menu-item-drop" data-action="save"><span class="paint-menu-label">Save</span><span class="paint-menu-shortcut">Ctrl+S</span></div>
+  <div class="paint-menu-item-drop" data-action="saveas"><span class="paint-menu-label">Save As...</span><span class="paint-menu-shortcut"></span></div>
+  <div class="paint-menu-separator"></div>
+  <div class="paint-menu-item-drop" data-action="publish"><span class="paint-menu-label">📤 Publish to Gallery...</span><span class="paint-menu-shortcut"></span></div>
+  <div class="paint-menu-separator"></div>
+  <div class="paint-menu-item-drop disabled" data-action="exit"><span class="paint-menu-label">Exit</span><span class="paint-menu-shortcut"></span></div>
+</div>
+
+<div id="paintMenuEdit" class="paint-dropdown-menu" style="display: none;">
+  <div class="paint-menu-item-drop" data-action="undo"><span class="paint-menu-label">Undo</span><span class="paint-menu-shortcut">Ctrl+Z</span></div>
+  <div class="paint-menu-item-drop" data-action="redo"><span class="paint-menu-label">Redo</span><span class="paint-menu-shortcut">Ctrl+Y</span></div>
+  <div class="paint-menu-separator"></div>
+  <div class="paint-menu-item-drop" data-action="cut"><span class="paint-menu-label">Cut</span><span class="paint-menu-shortcut">Ctrl+X</span></div>
+  <div class="paint-menu-item-drop" data-action="copy"><span class="paint-menu-label">Copy</span><span class="paint-menu-shortcut">Ctrl+C</span></div>
+  <div class="paint-menu-item-drop" data-action="paste"><span class="paint-menu-label">Paste</span><span class="paint-menu-shortcut">Ctrl+V</span></div>
+  <div class="paint-menu-item-drop" data-action="clear-selection"><span class="paint-menu-label">Clear Selection</span><span class="paint-menu-shortcut">Del</span></div>
+  <div class="paint-menu-separator"></div>
+  <div class="paint-menu-item-drop" data-action="select-all"><span class="paint-menu-label">Select All</span><span class="paint-menu-shortcut">Ctrl+A</span></div>
+</div>
+
+<div id="paintMenuImage" class="paint-dropdown-menu" style="display: none;">
+  <div class="paint-menu-item-drop" data-action="flip-rotate"><span class="paint-menu-label">Flip/Rotate...</span><span class="paint-menu-shortcut">Ctrl+R</span></div>
+  <div class="paint-menu-item-drop" data-action="stretch-skew"><span class="paint-menu-label">Stretch/Skew...</span><span class="paint-menu-shortcut">Ctrl+W</span></div>
+</div>
+
+<div id="paintMenuColors" class="paint-dropdown-menu" style="display: none;">
+  <div class="paint-menu-item-drop" data-action="edit-colors"><span class="paint-menu-label">Edit Colors...</span><span class="paint-menu-shortcut"></span></div>
+</div>
+
+<div id="paintMenuHelp" class="paint-dropdown-menu" style="display: none;">
+  <div class="paint-menu-item-drop disabled" data-action="help-topics"><span class="paint-menu-label">Help Topics</span><span class="paint-menu-shortcut"></span></div>
+  <div class="paint-menu-separator"></div>
+  <div class="paint-menu-item-drop" data-action="about"><span class="paint-menu-label">About Paint</span><span class="paint-menu-shortcut"></span></div>
+</div>

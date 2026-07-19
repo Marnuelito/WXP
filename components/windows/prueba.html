@@ -1,0 +1,35 @@
+<!-- ================= VENTANA: PRUEBA ================= -->
+<div class="ventana" id="prueba" style="display: none; width: 500px; height: 300px;">
+  <div class="resize-handle resize-n"></div>
+  <div class="resize-handle resize-s"></div>
+  <div class="resize-handle resize-e"></div>
+  <div class="resize-handle resize-w"></div>
+  <div class="resize-handle resize-ne"></div>
+  <div class="resize-handle resize-nw"></div>
+  <div class="resize-handle resize-se"></div>
+  <div class="resize-handle resize-sw"></div>
+
+  <div class="ventana-barra">
+    <img class="ventana-icono" src="https://i.imgur.com/wkLrNnm.png" alt="">
+    <span class="ventana-titulo">Ventana de prueba</span>
+    <div class="ventana-botones">
+      <button class="btn-ventana btn-minimizar" title="Minimizar" onclick="minimizarVentanaNativa('prueba')">
+        <svg viewBox="0 0 12 12"><rect x="2" y="8" width="8" height="2" fill="white"/></svg>
+      </button>
+      <button class="btn-ventana btn-maximizar" title="Maximizar" onclick="maximizarVentanaNativa('prueba')">
+        <svg viewBox="0 0 12 12">
+          <rect x="1.5" y="1.5" width="9" height="9" fill="none" stroke="white" stroke-width="1.5"/>
+          <rect x="1.5" y="1.5" width="9" height="2.5" fill="white"/>
+        </svg>
+      </button>
+      <button class="btn-ventana btn-cerrar" title="Cerrar" onclick="cerrarVentanaNativa('prueba')">
+        <svg viewBox="0 0 12 12">
+          <path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="ventana-contenido">
+    <p style="padding: 20px;">Este es el contenido de prueba de la ventana. ✨</p>
+  </div>
+</div>

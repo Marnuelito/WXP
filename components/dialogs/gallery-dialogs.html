@@ -1,0 +1,44 @@
+<!-- ================= DIÁLOGOS GALERÍA ================= -->
+<div id="galeriaDialogOverlay" class="paint-dialog-overlay" style="display: none;"></div>
+
+<div id="galeriaDialogPublish" class="paint-dialog galeria-dialog-publish" style="display: none;">
+  <div class="paint-dialog-titlebar">
+    <img class="paint-dialog-icon" src="https://i.imgur.com/5B3dJrk.png" alt="">
+    <span class="paint-dialog-title">Publish to Gallery</span>
+    <button class="paint-dialog-close" onclick="galeriaCerrarPublish(false)">
+      <svg viewBox="0 0 12 12"><path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="paint-dialog-body galeria-publish-body">
+    <div class="paint-dialog-campo">
+      <label for="galeriaPublishTitulo">Title:</label>
+      <input type="text" id="galeriaPublishTitulo" maxlength="50" placeholder="(Optional)">
+    </div>
+    <div class="galeria-publish-info">
+      Your drawing will be saved to<br><b>My Pictures</b>.
+    </div>
+  </div>
+  <div class="paint-dialog-botones">
+    <button class="paint-dialog-btn" onclick="galeriaCerrarPublish(true)">Publish</button>
+    <button class="paint-dialog-btn" onclick="galeriaCerrarPublish(false)">Cancel</button>
+  </div>
+</div>
+
+<div id="galeriaViewer" class="galeria-viewer" style="display: none;">
+  <div class="galeria-viewer-titlebar">
+    <img class="paint-dialog-icon" src="https://i.imgur.com/cpyxdBW.png" alt="">
+    <span class="galeria-viewer-titulo" id="galeriaViewerTitulo">Untitled</span>
+    <button class="paint-dialog-close" onclick="galeriaCerrarViewer()">
+      <svg viewBox="0 0 12 12"><path d="M 2,2 L 10,10 M 10,2 L 2,10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="galeria-viewer-body">
+    <img id="galeriaViewerImagen" src="" alt="">
+  </div>
+  <div class="galeria-viewer-info">
+    <span id="galeriaViewerFecha">-</span>
+    <button class="galeria-viewer-delete" id="galeriaViewerDelete" style="display: none;" onclick="galeriaEliminarActual()">🗑️ Delete</button>
+  </div>
+</div>
+
+<div id="galeriaZonaAdmin" ondblclick="galeriaAbrirAdmin()"></div>
