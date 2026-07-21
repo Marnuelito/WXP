@@ -39,8 +39,10 @@ function galeriaEscapar(str) {
 
 function galeriaRenderizar() {
   const contenedor = document.getElementById('mypicturesGaleria');
-  const statusCount = document.getElementById('mypicturesStatusCount');
-  const totalDetails = document.getElementById('mypicturesTotal');
+
+  if (!contenedor) {
+    return;   // Protección importante: evita el error cuando el DOM aún no está listo
+  }
 
   if (galeriaDibujos.length === 0) {
     contenedor.innerHTML = `
@@ -52,12 +54,16 @@ function galeriaRenderizar() {
         </div>
       </div>
     `;
-    statusCount.textContent = '0 objects';
-    totalDetails.textContent = '0 pictures';
+
+    const sc = document.getElementById('mypicturesStatusCount');
+    const td = document.getElementById('mypicturesTotal');
+    if (sc) sc.textContent = '0 objects';
+    if (td) td.textContent = '0 pictures';
     return;
   }
 
   contenedor.innerHTML = '';
+
   galeriaDibujos.forEach(dibujo => {
     const thumb = document.createElement('div');
     thumb.className = 'mypictures-thumb';
@@ -82,8 +88,15 @@ function galeriaRenderizar() {
     contenedor.appendChild(thumb);
   });
 
-  statusCount.textContent = galeriaDibujos.length + ' object' + (galeriaDibujos.length === 1 ? '' : 's');
-  totalDetails.textContent = galeriaDibujos.length + ' picture' + (galeriaDibujos.length === 1 ? '' : 's');
+  const statusCount = document.getElementById('mypicturesStatusCount');
+  const totalDetails = document.getElementById('mypicturesTotal');
+
+  if (statusCount) {
+    statusCount.textContent = galeriaDibujos.length + ' object' + (galeriaDibujos.length === 1 ? '' : 's');
+  }
+  if (totalDetails) {
+    totalDetails.textContent = galeriaDibujos.length + ' picture' + (galeriaDibujos.length === 1 ? '' : 's');
+  }
 }
 
 
